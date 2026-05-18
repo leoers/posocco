@@ -54,7 +54,7 @@ export default function FooterInfo() {
           className="text-center mb-24"
         >
           <h2 className="text-[#333] text-4xl md:text-5xl font-light mb-4">Fale conosco</h2>
-          <p className="text-gray-600 text-xl md:text-2xl mb-16">Atendemos clients em todo o país</p>
+          <p className="text-gray-600 text-xl md:text-2xl mb-16">Atendemos clientes em todo o país</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left">
             <div className="space-y-6">
