@@ -18,7 +18,6 @@ export default function Hero() {
         />
         
         {/* --- NOVO DEGRADÊ SUAVE E LONGO --- */}
-        {/* Aumentei para h-[60%] e usei paradas intermediárias para suavizar a descida */}
         <div className="absolute top-0 left-0 right-0 h-[70%] bg-gradient-to-b from-[#000814]/80 via-[#000814]/40 via-[#000814]/10 to-transparent z-10" />
       </div>
 
@@ -33,8 +32,8 @@ export default function Hero() {
             A Justiça que você busca, com a excelência que você merece.
           </h1>
 
-          {/* Subtítulo */}
-          <p className="text-white/95 text-base md:text-xl max-w-2xl mx-auto mb-10 font-light tracking-wide leading-relaxed">
+          {/* AJUSTADO: Aumentamos max-w-2xl para max-w-4xl para a frase institucional se manter em uma linha só no desktop */}
+          <p className="text-white/95 text-base md:text-xl max-w-4xl mx-auto mb-10 font-light tracking-wide leading-relaxed">
             Escritório de advocacia full service com atendimento em todo o Brasil.
           </p>
 

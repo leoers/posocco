@@ -23,15 +23,17 @@ const solucoes = [
 
 export default function Solucoes() {
   return (
-    <section className="w-full bg-[#000814]">
-      <div className="grid grid-cols-1 md:grid-cols-3 w-full min-h-[350px] md:h-[45vh]">
+    // Ajustado: Alterado bg-[#000814] para bg-white para o fundo e os respiros ficarem brancos
+    <section className="w-full bg-white px-[10px]">
+      {/* Mantido: min-h-[350px] md:h-[45vh] e gap-[10px] para o respiro sutil de 10px */}
+      <div className="grid grid-cols-1 md:grid-cols-3 w-full min-h-[350px] md:h-[45vh] gap-[10px]">
         {solucoes.map((item, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
-            className="relative group overflow-hidden border-r border-white/5 last:border-r-0"
+            className="relative group overflow-hidden w-full h-full"
           >
             <Image
               src={item.image}
@@ -45,7 +47,6 @@ export default function Solucoes() {
             <div className="relative z-10 h-full flex flex-col items-center justify-center p-4 text-center">
               <h3 className="text-white font-light mb-6 tracking-wide drop-shadow-md text-lg min-[760px]:text-xl xl:text-2xl flex flex-col items-center">
                 Soluções 
-                {/* Corrigido: Usando sublinhados em vez de espaços na Media Query arbitrária */}
                 <span className="font-bold block [@media(min-width:760px)_and_(max-width:986px)]:max-w-[150px]">
                   para {item.title.split('para ')[1]}
                 </span>

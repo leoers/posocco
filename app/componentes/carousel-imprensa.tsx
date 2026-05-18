@@ -4,16 +4,42 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const logos = [
-  { name: "Globo", src: "/images/logos/globo.png" },
+  // Emissoras de TV / Rádio (Linha de cima do print)
   { name: "Record", src: "/images/logos/record.png" },
-  { name: "SBT", src: "/images/logos/sbt.png" },
-  { name: "Band", src: "/images/logos/band.png" },
   { name: "RedeTV", src: "/images/logos/redetv.png" },
   { name: "Cultura", src: "/images/logos/cultura.png" },
-  { name: "GloboNews", src: "/images/logos/globonews.png" },
+  { name: "Record News", src: "/images/logos/recordnews.svg" },
   { name: "Futura", src: "/images/logos/futura.png" },
-  { name: "CBN", src: "/images/logos/cbn.png" },
-  { name: "Jovem Pan", src: "/images/logos/jovempan.png" },
+  { name: "Santa Cecília TV", src: "/images/logos/santaceciliatv.png" },
+  { name: "BS TV", src: "/images/logos/bstv.png" },
+  { name: "Rádio Justiça", src: "/images/logos/radiojustica.jpeg" },
+  { name: "Rádio Bandeirantes", src: "/images/logos/radiobandeirantes.png" },
+  { name: "Jovem Pan", src: "/images/logos/jovempan.svg" },
+  { name: "CBN", src: "/images/logos/cbn.svg" },
+  { name: "Capital", src: "/images/logos/capital.png" },
+  { name: "Nova Brasil", src: "/images/logos/novabrasil.png" },
+  { name: "A Tarde FM", src: "/images/logos/atarde.jpeg" },
+  { name: "Santos FM", src: "/images/logos/santosfm.png" },
+  { name: "GloboNews", src: "/images/logos/globonews.svg" },
+
+  // Portais de Notícias / Jornais (Linha de baixo do print)
+  { name: "A Tribuna", src: "/images/logos/atribuna.svg" },
+  { name: "Folha de S.Paulo", src: "/images/logos/folhadespaulo.png" },
+  { name: "Estadão", src: "/images/logos/estadao.png" },
+  { name: "UOL", src: "/images/logos/uol.png" },
+  { name: "Metrópoles", src: "/images/logos/metropoles.png" },
+  { name: "R7", src: "/images/logos/r7.svg" },
+  { name: "Veja SP", src: "/images/logos/vejasp.webp" },
+  { name: "Terra", src: "/images/logos/terra.png" },
+  { name: "iG", src: "/images/logos/ig.webp" },
+  { name: "Migalhas", src: "/images/logos/migalhas.png" },
+  { name: "Consultor Jurídico", src: "/images/logos/conjur.png" },
+  { name: "Jusbrasil", src: "/images/logos/jusbrasil.png" },
+  { name: "EBC", src: "/images/logos/ebc.png" },
+  { name: "Globo", src: "/images/logos/globo.png" },
+  { name: "Band", src: "/images/logos/band.svg" },
+  { name: "SBT", src: "/images/logos/sbt.svg" },
+  { name: "GWC", src: "/images/logos/gwc.png" }
 ];
 
 const duplicateLogos = [...logos, ...logos, ...logos];

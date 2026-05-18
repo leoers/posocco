@@ -47,12 +47,12 @@ export default function Navbar() {
               <span className="text-sm font-medium uppercase tracking-wide">Serviços</span>
             </Link>
             
-            <Link href="#contato" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
+            <Link href="/contato" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
               <MessageSquare size={18} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
               <span className="text-sm font-medium uppercase tracking-wide">Contato</span>
             </Link>
 
-            <Link href="#noticias" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
+            <Link href="/noticias" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
               <Newspaper size={18} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
               <span className="text-sm font-medium uppercase tracking-wide">Notícias</span>
             </Link>

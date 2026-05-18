@@ -27,8 +27,9 @@ export default function Contato() {
             {/* Coluna 1: WhatsApp e E-mail */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-[#001D3D] font-bold text-xl mb-4 flex items-center gap-2">
-                  Central de atendimento via WhatsApp
+                {/* AJUSTADO: Central de atendimento via WhatsApp -> CENTRAL WHATSAPP */}
+                <h3 className="text-[#001D3D] font-bold text-xl mb-4 flex items-center gap-2 tracking-wide">
+                  CENTRAL WHATSAPP
                 </h3>
                 <div className="text-gray-600 space-y-1 text-lg">
                   <p>+55 13 99200-9191</p>
@@ -38,7 +39,10 @@ export default function Contato() {
                 </div>
               </div>
               <div>
-                <h3 className="text-[#001D3D] font-bold text-xl mb-2">E-mail</h3>
+                {/* AJUSTADO: E-mail -> E-MAIL */}
+                <h3 className="text-[#001D3D] font-bold text-xl mb-2 tracking-wide">
+                  E-MAIL
+                </h3>
                 <p className="text-gray-600 text-lg">atendimento@posocco.com.br</p>
               </div>
             </div>
@@ -46,24 +50,28 @@ export default function Contato() {
             {/* Coluna 2: Horários */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-[#001D3D] font-bold text-xl mb-4">
-                  Horário de funcionamento
+                {/* AJUSTADO: Horário de funcionamento -> HORÁRIOS */}
+                <h3 className="text-[#001D3D] font-bold text-xl mb-4 tracking-wide">
+                  HORÁRIOS
                 </h3>
                 <div className="mb-6">
                   <p className="font-semibold text-gray-700">Assistência jurídica on-line</p>
                   <p className="text-gray-600">24 horas por dia, 7 dias por semana</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-700">Atendimento presencial e teleconsulta</p>
-                  <p className="text-gray-600">Somente com hora marcada, de segunda a sexta-feira, das 9h às 18h</p>
+                  {/* AJUSTADO: Atendimento presencial e teleconsulta -> Presencial e teleconsulta */}
+                  <p className="font-semibold text-gray-700">Presencial e teleconsulta</p>
+                  {/* AJUSTADO: Texto de horário reduzido conforme solicitado */}
+                  <p className="text-gray-600">Segunda a sexta, das 9h às 18h (Hora marcada)</p>
                 </div>
               </div>
             </div>
 
             {/* Coluna 3: Imprensa */}
             <div className="space-y-4">
-              <h3 className="text-[#001D3D] font-bold text-xl mb-4">
-                Atendimento à imprensa
+              {/* AJUSTADO: Atendimento à imprensa -> IMPRENSA */}
+              <h3 className="text-[#001D3D] font-bold text-xl mb-4 tracking-wide">
+                IMPRENSA
               </h3>
               <div className="text-gray-600 text-lg space-y-1">
                 <p>WhatsApp: +55 13 99184-8758</p>

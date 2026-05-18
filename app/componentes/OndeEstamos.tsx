@@ -19,7 +19,6 @@ const enderecos = [
     bairro: "Boqueirão, Santos/SP",
     cep: "CEP: 11045-002",
     telefone: "+55 13 3349-3290",
-    // Link específico para a unidade Santos
     mapaLink: "https://www.google.com/maps/dir/?api=1&destination=Posocco+Advogados+Associados+Santos+Conselheiro+Nebias+754"
   },
   {
@@ -29,7 +28,6 @@ const enderecos = [
     bairro: "Cerqueira César, São Paulo/SP",
     cep: "CEP: 01311-300",
     telefone: "+55 11 3373-7174",
-    // Link específico para a unidade São Paulo (Paulista)
     mapaLink: "https://www.google.com/maps/dir/?api=1&destination=Posocco+Advogados+Associados+Sao+Paulo+Paulista+2073"
   },
   {
@@ -39,7 +37,6 @@ const enderecos = [
     bairro: "Asa Norte, Brasília/DF",
     cep: "CEP: 70702-060",
     telefone: "+55 61 3142-3588",
-    // Link específico para a unidade Brasília
     mapaLink: "https://www.google.com/maps/dir/?api=1&destination=Posocco+Advogados+Associados+Brasilia+SHN+QD+02"
   },
 ];
@@ -49,7 +46,6 @@ export default function FooterInfo() {
     <section className="w-full bg-gradient-to-b from-[#f8f9fa] via-[#e9ecef] to-[#f8f9fa] py-20">
       <div className="container mx-auto max-w-[1600px] px-6 md:px-12">
         
-        {/* ... (Parte 1: Fale Conosco permanece idêntica) ... */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -58,7 +54,7 @@ export default function FooterInfo() {
           className="text-center mb-24"
         >
           <h2 className="text-[#333] text-4xl md:text-5xl font-light mb-4">Fale conosco</h2>
-          <p className="text-gray-600 text-xl md:text-2xl mb-16">Atendemos clientes em todo o país</p>
+          <p className="text-gray-600 text-xl md:text-2xl mb-16">Atendemos clients em todo o país</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left">
             <div className="space-y-6">
@@ -71,7 +67,8 @@ export default function FooterInfo() {
               </div>
               <div className="pt-4">
                 <h3 className="text-[#001D3D] font-bold text-xl uppercase tracking-wider mb-2">E-mail</h3>
-                <p className="text-gray-600 text-lg">atendimento@posocco.com.br</p>
+                {/* AJUSTADO: Forçando o endereço de e-mail a renderizar todo em letras maiúsculas */}
+                <p className="text-gray-600 text-lg uppercase">atendimento@posocco.com.br</p>
               </div>
             </div>
 
@@ -91,7 +88,8 @@ export default function FooterInfo() {
               <h3 className="text-[#001D3D] font-bold text-xl uppercase tracking-wider">Imprensa</h3>
               <div className="text-gray-600 text-lg">
                 <p>WhatsApp: +55 13 99184-8758</p>
-                <p>emanuelle.oliveira@gmail.com</p>
+                {/* AJUSTADO: Forçando o e-mail de contato da imprensa a ficar todo em maiúsculas */}
+                <p className="uppercase">emanuelle.oliveira@gmail.com</p>
               </div>
             </div>
           </div>
@@ -99,7 +97,7 @@ export default function FooterInfo() {
 
         <div className="w-full h-px bg-gray-300/50 mb-24" />
 
-        {/* PARTE 2: ONDE ESTAMOS - Agora com links corrigidos */}
+        {/* PARTE 2: ONDE ESTAMOS */}
         <motion.div
           initial="hidden"
           whileInView="visible"
