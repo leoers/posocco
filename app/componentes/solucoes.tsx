@@ -7,17 +7,17 @@ const solucoes = [
   {
     title: "Soluções para você",
     image: "/images/sol-1.png",
-    link: "https://wa.me/5511992175115", 
+    link: "/solucoes-para-voce", 
   },
   {
     title: "Soluções para empresa",
     image: "/images/sol-2.png",
-    link: "https://wa.me/5511992175115",
+    link: "/solucoes-sua-empresa",
   },
   {
     title: "Soluções para setor público",
     image: "/images/sol-3.png",
-    link: "https://wa.me/5511992175115",
+    link: "/solucoes-setor-publico",
   },
 ];
 
@@ -40,16 +40,16 @@ export default function Solucoes() {
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             
-            {/* DEGRADÊ ULTRA SUAVE:
-                - Começa no topo com apenas 15% de opacidade (#272E42/15) e vai até 40% da imagem
-                - Na metade (50%), ele reduz para 5% de opacidade para ficar quase invisível
-                - Dali para baixo vai para o transparente total, limpando completamente o fundo */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#272E42]/15 from-40% via-[#272E42]/05 via-50% to-transparent transition-opacity duration-500 group-hover:opacity-40" />
+            {/* DEGRADÊ CIRÚRGICO: 
+                - Começa com o azul correto #272E42 (com opacidade de 75% para não virar um bloco sólido)
+                - Mantém essa cobertura firme até os 40% da altura da caixa
+                - Na metade (50%), ele já suaviza drasticamente para 20% de opacidade
+                - E termina totalmente transparente (to-transparent) na base, limpando a foto dos personagens */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#272E42]/75 from-40% via-[#272E42]/20 via-50% to-transparent transition-opacity duration-500 group-hover:opacity-85" />
 
-            {/* Como o fundo agora está super limpo e claro, o texto usa um drop-shadow escuro 
-                para garantir que a leitura fique perfeita em qualquer monitor */}
             <div className="relative z-10 h-full flex flex-col items-center justify-center p-4 text-center">
-              <h3 className="text-white font-bold mb-6 tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] text-lg min-[760px]:text-xl xl:text-2xl flex flex-col items-center">
+              {/* Título posicionado na área de cobertura para contraste perfeito */}
+              <h3 className="text-white font-light mb-6 tracking-wide drop-shadow-md text-lg min-[760px]:text-xl xl:text-2xl flex flex-col items-center">
                 Soluções 
                 <span className="font-bold block [@media(min-width:760px)_and_(max-width:986px)]:max-w-[150px]">
                   para {item.title.split('para ')[1]}
@@ -58,10 +58,10 @@ export default function Solucoes() {
 
               <div className="flex flex-row gap-2 min-[760px]:gap-3 w-full justify-center px-2">
                 <a
-                  href="https://wa.me/5511992175115"
+                  href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-white/60 text-white py-2 rounded-full text-[10px] min-[760px]:text-xs font-medium hover:bg-white/20 transition-all text-center backdrop-blur-sm px-4 min-[760px]:px-6 min-[1210px]:px-8 min-[760px]:min-w-[100px] min-[1210px]:min-w-[130px] drop-shadow-md"
+                  className="border border-white/40 text-white py-2 rounded-full text-[10px] min-[760px]:text-xs font-medium hover:bg-white/10 transition-all text-center backdrop-blur-sm px-4 min-[760px]:px-6 min-[1210px]:px-8 min-[760px]:min-w-[100px] min-[1210px]:min-w-[130px]"
                 >
                   Serviços
                 </a>
