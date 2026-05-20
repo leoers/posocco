@@ -28,10 +28,10 @@ export default function Contato() {
             <div className="space-y-8">
               <div>
                 {/* AJUSTADO: Central de atendimento via WhatsApp -> CENTRAL WHATSAPP */}
-                <h3 className="text-[#001D3D] font-bold text-xl mb-4 flex items-center gap-2 tracking-wide">
-                  CENTRAL WHATSAPP
+                <h3 className="text-[#001D3D] font-bold text-xl mb-3 flex items-center gap-2 tracking-wide">
+                  Central de atendimento via WhatsApp
                 </h3>
-                <div className="text-gray-600 space-y-1 text-lg">
+                <div className="text-gray-600 space-y-0 text-lg">
                   <p>+55 13 99200-9191</p>
                   <p>+55 11 99217-5115</p>
                   <p>+55 11 97827-7147</p>
@@ -43,7 +43,7 @@ export default function Contato() {
                 <h3 className="text-[#001D3D] font-bold text-xl mb-2 tracking-wide">
                   E-MAIL
                 </h3>
-                <p className="text-gray-600 text-lg">atendimento@posocco.com.br</p>
+                <p className="text-gray-600">atendimento@posocco.com.br</p>
               </div>
             </div>
 
@@ -52,7 +52,7 @@ export default function Contato() {
               <div>
                 {/* AJUSTADO: Horário de funcionamento -> HORÁRIOS */}
                 <h3 className="text-[#001D3D] font-bold text-xl mb-4 tracking-wide">
-                  HORÁRIOS
+                  Horário de funcionamento
                 </h3>
                 <div className="mb-6">
                   <p className="font-semibold text-gray-700">Assistência jurídica on-line</p>
@@ -60,9 +60,9 @@ export default function Contato() {
                 </div>
                 <div>
                   {/* AJUSTADO: Atendimento presencial e teleconsulta -> Presencial e teleconsulta */}
-                  <p className="font-semibold text-gray-700">Presencial e teleconsulta</p>
+                  <p className="font-semibold text-gray-700">Atendimento presencial e teleconsulta</p>
                   {/* AJUSTADO: Texto de horário reduzido conforme solicitado */}
-                  <p className="text-gray-600">Segunda a sexta, das 9h às 18h (Hora marcada)</p>
+                  <p className="text-gray-600">Somente com hora marcada, de segunda a sexta-feira das 9h às 18h</p>
                 </div>
               </div>
             </div>
@@ -71,9 +71,9 @@ export default function Contato() {
             <div className="space-y-4">
               {/* AJUSTADO: Atendimento à imprensa -> IMPRENSA */}
               <h3 className="text-[#001D3D] font-bold text-xl mb-4 tracking-wide">
-                IMPRENSA
+                Atendimento a imprensa
               </h3>
-              <div className="text-gray-600 text-lg space-y-1">
+              <div className="text-gray-600 space-y-1">
                 <p>WhatsApp: +55 13 99184-8758</p>
                 <p>E-mail: emanuelle.oliveira@gmail.com</p>
               </div>

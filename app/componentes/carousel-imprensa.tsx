@@ -58,11 +58,12 @@ export default function CarouselImprensa() {
 
   return (
     <section className="w-full bg-white py-12 overflow-hidden border-b border-gray-100">
-      <div className="container mx-auto px-4 mb-8 text-center">
-        <h2 className="text-[#001D3D] text-2xl md:text-3xl font-light mb-2">
+      <div className="max-w-8xl mx-auto px-6 flex flex-col items-center text-center mb-16 w-full">
+        <h2 className="text-[#001D3D] text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-4">
           Notícias
         </h2>
-        <p className="text-gray-500 text-sm italic">
+        {/* Removido o truncate e igualado o tamanho (text-lg md:text-xl lg:text-2xl) */}
+        <p className="text-gray-500 text-lg md:text-xl lg:text-2xl font-light tracking-wide max-w-4xl">
           Somos fonte de informação jurídica para a imprensa de todo o país
         </p>
       </div>

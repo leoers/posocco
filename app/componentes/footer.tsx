@@ -25,7 +25,7 @@ export default function Footer() {
           variants={fadeInVariant}
           className="flex flex-col items-center space-y-8"
         >
-          <h2 className="text-[#333] text-3xl md:text-4xl font-light tracking-tight">
+          <h2 className="text-[#333] text-3xl md:text-4xl lg:text-[48px] font-light tracking-tight">
             Siga nossas redes sociais
           </h2>
 

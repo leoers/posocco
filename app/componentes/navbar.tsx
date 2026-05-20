@@ -42,7 +42,7 @@ export default function Navbar() {
 
           {/* Links Desktop */}
           <div className="hidden md:flex items-center space-x-10">
-            <Link href="#servicos" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
+            <Link href="/servicos" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
               <Handshake size={18} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
               <span className="text-sm font-medium uppercase tracking-wide">Serviços</span>
             </Link>

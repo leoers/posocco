@@ -17,13 +17,13 @@ const solutions = [
   {
     title: "Soluções para você",
     image: "/images/bg3-qs.png",
-    link: "/solucoes-pessoa-fisica",
+    link: "/solucoes-para-voce",
     icon: <FaHandshake size={35} className="text-white/80" />
   },
   {
     title: "Soluções para empresa",
     image: "/images/bg4-qs.png",
-    link: "/solucoes-empresa",
+    link: "/solucoes-sua-empresa",
     icon: <FaBriefcase size={32} className="text-white/80" />
   },
   {
@@ -39,13 +39,7 @@ export default function SolucoesPorPerfil() {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6 md:px-12 flex flex-col items-center">
         
-        {/* Botão Superior: Falar com Especialista */}
-        <Link 
-          href="/contato" 
-          className="bg-[#001D3D] text-white px-12 py-3 rounded-full font-medium hover:bg-[#003566] transition-all duration-300 mb-10 shadow-lg text-lg"
-        >
-          Falar com um especialista
-        </Link>
+        
 
         {/* Título Principal */}
         <h2 className="text-[#333] text-3xl md:text-4xl font-light text-center mb-16">

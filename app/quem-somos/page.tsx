@@ -1,7 +1,9 @@
 "use client";
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
 import { HiOutlineShieldCheck } from "react-icons/hi"; // Ícone de escudo estável
+
 import Responsabilidade from "@/app/quem-somos/responsabilidade";
 import SolucoesPorPerfil from "@/app/quem-somos/SolucoesPorPerfil";
 
@@ -124,6 +126,13 @@ export default function QuemSomosPage() {
         </motion.div>
       </div>
       <Responsabilidade />
+      {/* Botão Superior: Falar com Especialista */}
+        <Link 
+          href="/contato" 
+          className="bg-[#001D3D] text-white px-12 py-3 rounded-full font-medium hover:bg-[#003566] transition-all duration-300 mb-10 shadow-lg text-lg"
+        >
+          Falar com um especialista
+        </Link>
       <SolucoesPorPerfil />
     </main>
   );

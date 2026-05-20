@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -72,20 +72,20 @@ export default function NoticiasBlog() {
   if (loading || posts.length === 0) return null;
 
   return (
-    <section className="w-full bg-white py-10 md:py-20 overflow-hidden">
+    <section className="w-full bg-white pt-16 pb-10 md:py-20 overflow-hidden">
       <div className="container mx-auto max-w-[1600px] px-4 md:px-12 relative">
-        
-        {/* Setas: Menores no mobile e fora do conteúdo para não sobrepor */}
+
+        {/* Setas: Reposicionadas verticalmente com base no novo cabeçalho */}
         <button 
           onClick={handlePrev}
-          className="absolute left-1 md:-left-4 top-[35%] md:top-[40%] -translate-y-1/2 z-30 p-1.5 md:p-3 rounded-full border border-gray-200 bg-white shadow-md hover:bg-gray-50 transition-all"
+          className="absolute left-1 md:-left-4 top-[55%] md:top-[60%] -translate-y-1/2 z-30 p-1.5 md:p-3 rounded-full border border-gray-200 bg-white shadow-md hover:bg-gray-50 transition-all"
         >
           <ChevronLeft className="w-5 h-5 md:w-7 md:h-7 text-gray-400" />
         </button>
 
         <button 
           onClick={handleNext}
-          className="absolute right-1 md:-right-4 top-[35%] md:top-[40%] -translate-y-1/2 z-30 p-1.5 md:p-3 rounded-full border border-gray-200 bg-white shadow-md hover:bg-gray-50 transition-all"
+          className="absolute right-1 md:-right-4 top-[55%] md:top-[60%] -translate-y-1/2 z-30 p-1.5 md:p-3 rounded-full border border-gray-200 bg-white shadow-md hover:bg-gray-50 transition-all"
         >
           <ChevronRight className="w-5 h-5 md:w-7 md:h-7 text-gray-400" />
         </button>
@@ -93,7 +93,6 @@ export default function NoticiasBlog() {
         <div className="w-full overflow-hidden">
           <motion.div 
             className="flex"
-            // O cálculo agora é dinâmico (100/1, 100/2 ou 100/3) dependendo da tela
             animate={{ x: `-${currentIndex * (100 / itemsToScroll)}%` }}
             transition={isTransitioning ? { type: "tween", ease: "easeInOut", duration: 0.5 } : { duration: 0 }}
           >
@@ -103,7 +102,6 @@ export default function NoticiasBlog() {
               return (
                 <div 
                   key={`${post.id}-${index}`} 
-                  // RESPONSIVIDADE: 1 post (mobile), 2 posts (tablet), 3 posts (desktop)
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%] px-3 md:px-4 box-border"
                 >
                   <a href={post.link} target="_blank" rel="noopener noreferrer" className="group block w-full">

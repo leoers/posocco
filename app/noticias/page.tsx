@@ -13,6 +13,10 @@ export default function Noticias() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
+  // CONTROLADORES DE INTERFACE (Altere para 'true' para reativar os blocos no futuro)
+  const showCategories = false; // Oculta a barra de filtros da imagem_288126.png
+  const showNewsletter = false; // Oculta o card "Acompanhe a Posocco!"
+
   useEffect(() => {
     async function loadInitialData() {
       setLoading(true);
@@ -50,26 +54,30 @@ export default function Noticias() {
     <main className="bg-white min-h-screen pt-28 pb-20">
       <div className="container mx-auto px-6">
         
-        {/* Filtros */}
+        {/* Cabeçalho de Título */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-light text-gray-400 mb-6">Notícias</h1>
-          <div className="flex flex-wrap justify-center gap-4 text-sm font-bold text-gray-500 uppercase tracking-widest">
-            <button 
-              onClick={() => setSelectedCategory(undefined)}
-              className={`${!selectedCategory ? "text-black border-b-2 border-black" : "text-gray-400 hover:text-black transition-colors"}`}
-            >
-              Mais recentes
-            </button>
-            {categories.map((cat) => (
+          
+          {/* BLOCO DA IMAGEM (FILTROS): Envelopado na condicional showCategories */}
+          {showCategories && (
+            <div className="flex flex-wrap justify-center gap-4 text-sm font-bold text-gray-500 uppercase tracking-widest">
               <button 
-                key={cat.id} 
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`${selectedCategory === cat.id ? "text-black border-b-2 border-black" : "text-gray-400 hover:text-black transition-colors"}`}
+                onClick={() => setSelectedCategory(undefined)}
+                className={`${!selectedCategory ? "text-black border-b-2 border-black" : "text-gray-400 hover:text-black transition-colors"}`}
               >
-                | {cat.name}
+                Mais recentes
               </button>
-            ))}
-          </div>
+              {categories.map((cat) => (
+                <button 
+                  key={cat.id} 
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`${selectedCategory === cat.id ? "text-black border-b-2 border-black" : "text-gray-400 hover:text-black transition-colors"}`}
+                >
+                  | {cat.name}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Grid de 3 colunas */}
@@ -102,34 +110,36 @@ export default function Noticias() {
             })}
           </AnimatePresence>
 
-          {/* CARD DE ASSINATURA (Sempre a última posição) */}
-          <motion.div 
-            layout
-            className="flex flex-col justify-end pb-4 h-full min-h-[300px]"
-          >
-            <div className="max-w-[300px]">
-              <h3 className="text-[22px] font-medium text-[#4D4D4D] mb-2 leading-tight">
-                Acompanhe a Posocco!
-              </h3>
+          {/* CARD DE ASSINATURA: Ocultado via showNewsletter */}
+          {showNewsletter && (
+            <motion.div 
+              layout
+              className="flex flex-col justify-end pb-4 h-full min-h-[300px]"
+            >
+              <div className="max-w-[300px]">
+                <h3 className="text-[22px] font-medium text-[#4D4D4D] mb-2 leading-tight">
+                  Acompanhe a Posocco!
+                </h3>
 
-              {/* Linha Decorativa Bicolor - Ajustada conforme o layout */}
-            <div className="relative w-full h-[3px] bg-[#D1D1D1] mb-10 rounded-full overflow-hidden">
-            <div 
-                className="absolute left-0 top-0 h-full bg-[#001D3D] rounded-full" 
-                style={{ width: '45%' }}
-            ></div>
-            </div>
+                {/* Linha Decorativa Bicolor */}
+                <div className="relative w-full h-[3px] bg-[#D1D1D1] mb-10 rounded-full overflow-hidden">
+                  <div 
+                    className="absolute left-0 top-0 h-full bg-[#001D3D] rounded-full" 
+                    style={{ width: '45%' }}
+                  ></div>
+                </div>
 
-              {/* Input de E-mail Estilo Pílula */}
-              <div className="relative">
-                <input 
-                  type="email" 
-                  placeholder="e-mail"
-                  className="w-full h-[45px] px-6 bg-white border border-[#707070] rounded-full text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#001D3D] transition-all"
-                />
+                {/* Input de E-mail Estilo Pílula */}
+                <div className="relative">
+                  <input 
+                    type="email" 
+                    placeholder="e-mail"
+                    className="w-full h-[45px] px-6 bg-white border border-[#707070] rounded-full text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#001D3D] transition-all"
+                  />
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
         </div>
 
         {/* Botão Ver Mais */}

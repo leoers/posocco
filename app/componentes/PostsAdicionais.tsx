@@ -56,7 +56,7 @@ export default function PostsAdicionais() {
               className="group flex flex-col items-center gap-2"
             >
               <span className="text-[#333] text-xl md:text-2xl font-light tracking-wide transition-colors group-hover:text-[#001D3D]">
-                {loading ? "Carregando..." : "Mostre mais"}
+                {loading ? "Carregando..." : "Mostrar mais"}
               </span>
               <motion.div
                 animate={{ y: [0, 8, 0] }}

@@ -58,8 +58,8 @@ export default function FooterInfo() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left">
             <div className="space-y-6">
-              <h3 className="text-[#001D3D] font-bold text-xl uppercase tracking-wider">Central WhatsApp</h3>
-              <div className="text-gray-600 text-lg space-y-1">
+              <h3 className="text-[#001D3D] font-bold text-xl uppercase tracking-wider">Central de atendimento via WhatsApp</h3>
+              <div className="text-gray-600 space-y-0">
                 <p>+55 13 99200-9191</p>
                 <p>+55 11 99217-5115</p>
                 <p>+55 11 97827-7147</p>
@@ -68,28 +68,37 @@ export default function FooterInfo() {
               <div className="pt-4">
                 <h3 className="text-[#001D3D] font-bold text-xl uppercase tracking-wider mb-2">E-mail</h3>
                 {/* AJUSTADO: Forçando o endereço de e-mail a renderizar todo em letras maiúsculas */}
-                <p className="text-gray-600 text-lg uppercase">atendimento@posocco.com.br</p>
+                <p className="text-gray-600 text-lg">atendimento@posocco.com.br</p>
               </div>
             </div>
 
-            <div className="space-y-6">
-              <h3 className="text-[#001D3D] font-bold text-xl uppercase tracking-wider">Horários</h3>
+            <div className="space-y-8">
               <div>
-                <p className="font-bold text-gray-800">Assistência jurídica on-line</p>
-                <p className="text-gray-600">24 horas por dia, 7 dias por semana</p>
-              </div>
-              <div>
-                <p className="font-bold text-gray-800">Presencial e teleconsulta</p>
-                <p className="text-gray-600">Segunda a sexta, das 9h às 18h (Hora marcada)</p>
+                {/* AJUSTADO: Horário de funcionamento -> HORÁRIOS */}
+                <h3 className="text-[#001D3D] font-bold text-xl mb-4 tracking-wide">
+                  Horário de funcionamento
+                </h3>
+                <div className="mb-6">
+                  <p className="font-semibold text-gray-700">Assistência jurídica on-line</p>
+                  <p className="text-gray-600">24 horas por dia, 7 dias por semana</p>
+                </div>
+                <div>
+                  {/* AJUSTADO: Atendimento presencial e teleconsulta -> Presencial e teleconsulta */}
+                  <p className="font-semibold text-gray-700">Atendimento presencial e teleconsulta</p>
+                  {/* AJUSTADO: Texto de horário reduzido conforme solicitado */}
+                  <p className="text-gray-600">Somente com hora marcada, de segunda a sexta-feira das 9h às 18h</p>
+                </div>
               </div>
             </div>
 
-            <div className="space-y-6">
-              <h3 className="text-[#001D3D] font-bold text-xl uppercase tracking-wider">Imprensa</h3>
-              <div className="text-gray-600 text-lg">
+            <div className="space-y-4">
+              {/* AJUSTADO: Atendimento à imprensa -> IMPRENSA */}
+              <h3 className="text-[#001D3D] font-bold text-xl mb-4 tracking-wide">
+                Atendimento a imprensa
+              </h3>
+              <div className="text-gray-600 space-y-1">
                 <p>WhatsApp: +55 13 99184-8758</p>
-                {/* AJUSTADO: Forçando o e-mail de contato da imprensa a ficar todo em maiúsculas */}
-                <p className="uppercase">emanuelle.oliveira@gmail.com</p>
+                <p>E-mail: emanuelle.oliveira@gmail.com</p>
               </div>
             </div>
           </div>
@@ -116,7 +125,7 @@ export default function FooterInfo() {
                   <p>{item.edificio}</p>
                   <p>{item.bairro}</p>
                   <p>{item.cep}</p>
-                  <p className="font-bold text-gray-800 pt-2">Telefone: {item.telefone}</p>
+                  <p>Telefone: {item.telefone}</p>
                 </div>
                 
                 <a 

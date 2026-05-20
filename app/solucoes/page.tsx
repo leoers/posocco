@@ -19,7 +19,6 @@ interface TemplateProps {
   dados: BlocoConteudo[];
 }
 
-// 1. Adicionado "= []" para garantir que dados sempre seja um array, mesmo no build
 export default function TemplateSolucoes({ titulo, imagemFundo, dados = [] }: TemplateProps) {
   const [index, setIndex] = useState(0);
   const router = useRouter();
@@ -27,7 +26,6 @@ export default function TemplateSolucoes({ titulo, imagemFundo, dados = [] }: Te
   const cardWidth = 304; 
   const cardsVisiveis = 4; 
   
-  // 2. Proteção com optional chaining e fallback para 0
   const totalDados = dados?.length || 0;
   const maxIndex = Math.max(0, totalDados - cardsVisiveis);
 
@@ -95,7 +93,6 @@ export default function TemplateSolucoes({ titulo, imagemFundo, dados = [] }: Te
               animate={{ x: -(index * cardWidth) }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              {/* 3. Map com proteção opcional */}
               {dados?.map((item, idx) => (
                 <a key={item.id || idx} href={`#${item.id}`} className="relative w-[280px] h-[350px] flex-shrink-0 group overflow-hidden rounded-sm shadow-2xl bg-slate-800">
                   <Image src={item.imagemCard} alt={item.categoria} fill className="object-cover opacity-80" />
@@ -137,9 +134,16 @@ export default function TemplateSolucoes({ titulo, imagemFundo, dados = [] }: Te
                   ))}
                 </div>
               </div>
-              <button className="mt-10 bg-[#001D3D] text-white px-10 py-3 rounded-full w-fit font-medium">
+              
+              {/* Ajustado: Transformado em tag <a> apontando para o link do WhatsApp solicitado */}
+              <a 
+                href="https://wa.me/5511992175115"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 bg-[#001D3D] text-white px-10 py-3 rounded-full w-fit font-medium hover:bg-[#001D3D]/90 transition-colors text-center"
+              >
                 Falar com um especialista
-              </button>
+              </a>
             </div>
           ))}
         </div>

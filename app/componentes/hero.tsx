@@ -40,14 +40,14 @@ export default function Hero() {
           {/* Botões (CTAs) agora abraçados pelo final do degradê */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 z-30 relative">
             <Link 
-              href="/sobre" 
+              href="/quem-somos" 
               className="border border-white/70 text-white px-10 py-3 rounded-full hover:bg-white/10 transition-all w-full sm:w-auto min-w-[220px] font-semibold text-lg tracking-wide flex items-center justify-center cursor-pointer shadow-lg"
             >
               Quem Somos
             </Link>
             
             <Link 
-              href="/contato" 
+              href="https://wa.me/5511992175115" target="_blank" 
               className="bg-white text-[#001D3D] px-10 py-3 rounded-full hover:bg-gray-100 transition-all w-full sm:w-auto min-w-[220px] font-bold text-lg tracking-wide shadow-2xl flex items-center justify-center cursor-pointer"
             >
               Agendar Consulta

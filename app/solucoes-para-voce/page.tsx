@@ -203,7 +203,7 @@ export default function PaginaVoce() {
       accordions: [
         {
           titulo: "Passagens e Bagagens",
-          itens: ["Atrasos e cancelamentos de voos", "Extravio de bagagem", "Direito de arrependimento e reembolso"]
+          itens: ["Atrasos e cancelamentos de voos", "Extravio de bagagem", "Direito de arrependimento e reembolso", "Indenização por acidente"]
         }
       ]
     },
