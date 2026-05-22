@@ -1,8 +1,4 @@
-"use client";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Post {
   id: number;
@@ -13,120 +9,58 @@ interface Post {
   };
 }
 
-export default function NoticiasBlog() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(6); 
-  const [isTransitioning, setIsTransitioning] = useState(true);
-  const [itemsToScroll, setItemsToScroll] = useState(3);
+// Marcado como async para buscar os dados diretamente ou use um Client Component com useEffect
+export default async function NoticiasBlog() {
+  let posts: Post[] = [];
 
-  // Detecta o tamanho da tela para ajustar a navegação do slide
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) setItemsToScroll(1);
-      else if (window.innerWidth < 1024) setItemsToScroll(2);
-      else setItemsToScroll(3);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  try {
+    const res = await fetch("https://posocco.com.br/wp-json/wp/v2/posts?per_page=6&_embed", {
+      next: { revalidate: 3600 } // Opcional: cache de 1 hora
+    });
+    posts = await res.json();
+  } catch (error) {
+    console.error("Erro na API:", error);
+  }
 
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const res = await fetch("https://posocco.com.br/wp-json/wp/v2/posts?per_page=6&_embed");
-        const data = await res.json();
-        setPosts(data);
-      } catch (error) {
-        console.error("Erro na API:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchPosts();
-  }, []);
-
-  const extendedPosts = [...posts, ...posts, ...posts];
-
-  useEffect(() => {
-    if (currentIndex >= 12 || currentIndex <= 0) {
-      const timer = setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrentIndex(6);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [currentIndex]);
-
-  const handleNext = () => {
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev + 1);
-  };
-
-  const handlePrev = () => {
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev - 1);
-  };
-
-  if (loading || posts.length === 0) return null;
+  if (posts.length === 0) return null;
 
   return (
-    <section className="w-full bg-white pt-16 pb-10 md:py-20 overflow-hidden">
-      <div className="container mx-auto max-w-[1600px] px-4 md:px-12 relative">
-
-        {/* Setas: Reposicionadas verticalmente com base no novo cabeçalho */}
-        <button 
-          onClick={handlePrev}
-          className="absolute left-1 md:-left-4 top-[55%] md:top-[60%] -translate-y-1/2 z-30 p-1.5 md:p-3 rounded-full border border-gray-200 bg-white shadow-md hover:bg-gray-50 transition-all"
-        >
-          <ChevronLeft className="w-5 h-5 md:w-7 md:h-7 text-gray-400" />
-        </button>
-
-        <button 
-          onClick={handleNext}
-          className="absolute right-1 md:-right-4 top-[55%] md:top-[60%] -translate-y-1/2 z-30 p-1.5 md:p-3 rounded-full border border-gray-200 bg-white shadow-md hover:bg-gray-50 transition-all"
-        >
-          <ChevronRight className="w-5 h-5 md:w-7 md:h-7 text-gray-400" />
-        </button>
-
-        <div className="w-full overflow-hidden">
-          <motion.div 
-            className="flex"
-            animate={{ x: `-${currentIndex * (100 / itemsToScroll)}%` }}
-            transition={isTransitioning ? { type: "tween", ease: "easeInOut", duration: 0.5 } : { duration: 0 }}
-          >
-            {extendedPosts.map((post, index) => {
-              const imageUrl = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.jpg";
-              
-              return (
-                <div 
-                  key={`${post.id}-${index}`} 
-                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%] px-3 md:px-4 box-border"
-                >
-                  <a href={post.link} target="_blank" rel="noopener noreferrer" className="group block w-full">
-                    
-                    <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[1.5rem] md:rounded-[2.5rem] mb-4 md:mb-6 shadow-sm bg-gray-100">
-                      <Image
-                        src={imageUrl}
-                        alt={post.title.rendered}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </div>
-
-                    <div className="min-h-[80px] md:min-h-[100px]">
-                      <h3 
-                        className="text-[#333] font-bold text-lg md:text-xl lg:text-2xl leading-tight line-clamp-3 group-hover:text-[#001D3D] transition-colors"
-                        dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                      />
-                    </div>
-                  </a>
+    <section className="w-full bg-white pt-16 pb-10 md:py-20">
+      <div className="container mx-auto max-w-[1600px] px-4 md:px-12">
+        
+        {/* Grid: 1 coluna no mobile, 2 no tablet e 3 no desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {posts.map((post) => {
+            const imageUrl = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.jpg";
+            
+            return (
+              <a 
+                key={post.id} 
+                href={post.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group block w-full"
+              >
+                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[1.5rem] md:rounded-[2.5rem] mb-4 md:mb-6 shadow-sm bg-gray-100">
+                  <Image
+                    src={imageUrl}
+                    alt={post.title.rendered}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
                 </div>
-              );
-            })}
-          </motion.div>
+
+                <div className="min-h-[80px] md:min-h-[100px]">
+                  <h3 
+                    className="text-[#333] font-bold text-lg md:text-xl lg:text-2xl leading-tight line-clamp-3 group-hover:text-[#001D3D] transition-colors"
+                    dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                  />
+                </div>
+              </a>
+            );
+          })}
         </div>
+        
       </div>
     </section>
   );
