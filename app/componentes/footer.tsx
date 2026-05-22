@@ -42,10 +42,10 @@ export default function Footer() {
           {/* ÍCONES COM REACT-ICONS */}
           <div className="flex space-x-4">
             {[
-              { icon: <FaInstagram size={22} />, link: "#" },
-              { icon: <FaFacebookF size={22} />, link: "#" },
-              { icon: <IoLogoTiktok size={22} />, link: "#" },
-              { icon: <FaYoutube size={22} />, link: "#" },
+              { icon: <FaInstagram size={22} />, link: "https://www.instagram.com/posoccoadvogadosassociados" },
+              { icon: <FaFacebookF size={22} />, link: "https://www.facebook.com/PosoccoAssociados" },
+              { icon: <IoLogoTiktok size={22} />, link: "https://www.tiktok.com/@posocco" },
+              { icon: <FaYoutube size={22} />, link: "https://www.youtube.com/PosoccoAdvogadosAssociados" },
             ].map((social, index) => (
               <a
                 key={index}

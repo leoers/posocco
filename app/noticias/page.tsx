@@ -2,10 +2,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // Importado para gerenciar o histórico
+import { ArrowLeft } from "lucide-react"; // Importado o ícone de seta
 import { motion, AnimatePresence } from "framer-motion";
 import { getPosts, getCategories } from "../componentes/wordpress";
 
 export default function Noticias() {
+  const router = useRouter(); // Instanciando o roteador
   const [posts, setPosts] = useState<any[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<number | undefined>(undefined);
@@ -51,7 +54,19 @@ export default function Noticias() {
   };
 
   return (
-    <main className="bg-white min-h-screen pt-28 pb-20">
+    <main className="bg-white min-h-screen pt-28 pb-20 relative">
+      
+      {/* BOTÃO VOLTAR MINIMALISTA (Seta na cor Azul do Menu) */}
+      <div className="absolute top-24 left-6 md:left-12 z-40">
+        <button
+          onClick={() => router.back()}
+          className="text-[#001D3D]/70 hover:text-[#001D3D] transition group cursor-pointer p-1"
+          aria-label="Voltar para a página anterior"
+        >
+          <ArrowLeft size={24} strokeWidth={1.5} className="group-hover:-translate-x-1 transition-transform" />
+        </button>
+      </div>
+
       <div className="container mx-auto px-6">
         
         {/* Cabeçalho de Título */}

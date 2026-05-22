@@ -1,22 +1,19 @@
 "use client";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // Adicionado AnimatePresence
-import { Handshake, MessageSquare, Newspaper, Search, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Handshake, MessageSquare, Newspaper, Search } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation"; // Para redirecionar na busca
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
 
-  // Função para processar a busca
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // Redireciona para uma página de busca (que vamos criar) passando o termo
       router.push(`/busca?q=${encodeURIComponent(searchQuery)}`);
       setIsSearchOpen(false);
       setSearchQuery("");
@@ -25,81 +22,92 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 bg-[#000814]/90 backdrop-blur-xl border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image 
+      {/* --- NAVBAR --- */}
+      <nav className="fixed top-0 w-full z-50">
+        
+        {/* Bloco Superior (Apenas Logo no Mobile / Estrutura Completa no Desktop) */}
+        <div className="bg-[#000814]/95 md:bg-[#000814]/90 backdrop-blur-xl border-b border-white/5">
+          <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative">
+            
+            {/* Logo (Aumentada e Ajustada com Responsividade) */}
+            <Link 
+              href="/" 
+              className="flex items-center absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0"
+            >
+              <Image 
                 src="/images/logo-posocco.png"
                 alt="Posocco Advogados & Consultores"
-                width={180} 
-                height={40} 
-                className="object-contain w-auto h-auto"
+                width={220} 
+                height={50} 
+                className="object-contain w-auto h-9 sm:h-10 md:h-10 transition-all"
                 priority 
-            />
-          </Link>
-
-          {/* Links Desktop */}
-          <div className="hidden md:flex items-center space-x-10">
-            <Link href="/servicos" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
-              <Handshake size={18} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-medium uppercase tracking-wide">Serviços</span>
-            </Link>
-            
-            <Link href="/contato" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
-              <MessageSquare size={18} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-medium uppercase tracking-wide">Contato</span>
+              />
             </Link>
 
-            <Link href="/noticias" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
-              <Newspaper size={18} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-medium uppercase tracking-wide">Notícias</span>
-            </Link>
-          </div>
+            {/* Links para Desktop Centralizados */}
+            <div className="hidden md:flex items-center space-x-10 absolute left-1/2 -translate-x-1/2">
+              <Link href="/servicos" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
+                <Handshake size={18} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium uppercase tracking-wide">Serviços</span>
+              </Link>
+              
+              <Link href="/contato" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
+                <MessageSquare size={18} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium uppercase tracking-wide">Contato</span>
+              </Link>
 
-          {/* Busca e Mobile */}
-          <div className="flex items-center space-x-4">
-            <button 
-              onClick={() => setIsSearchOpen(true)}
-              className="p-2 text-white/50 hover:text-white transition cursor-pointer"
-            >
-              <Search size={20} strokeWidth={1.5} />
-            </button>
-            
-            <button 
-              className="md:hidden p-2 text-white"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              <Link href="/noticias" className="flex items-center space-x-2 text-white/70 hover:text-white transition group">
+                <Newspaper size={18} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium uppercase tracking-wide">Notícias</span>
+              </Link>
+            </div>
+
+            {/* Botão de Busca - EXCLUSIVO DESKTOP */}
+            <div className="hidden md:flex items-center">
+              <button 
+                onClick={() => setIsSearchOpen(true)}
+                className="p-2 text-white/50 hover:text-white transition cursor-pointer"
+              >
+                <Search size={20} strokeWidth={1.5} />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Menu Mobile */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="md:hidden bg-[#000814] p-6 space-y-6 border-t border-white/5"
+        {/* --- MENU MOBILE INTEGRADO --- */}
+        <div className="md:hidden bg-[#000814]/95 backdrop-blur-xl border-b border-white/5 h-16 w-full flex items-center justify-center">
+          <div className="grid grid-cols-4 items-center justify-between h-full px-4 text-center w-full max-w-sm">
+            
+            <Link href="/servicos" className="flex flex-col items-center justify-center text-white/70 active:text-white transition">
+              <Handshake size={20} strokeWidth={1.5} className="text-white" />
+              <span className="text-[11px] font-light mt-0.5 text-gray-400">Serviços</span>
+            </Link>
+            
+            <Link href="/contato" className="flex flex-col items-center justify-center text-white/70 active:text-white transition">
+              <MessageSquare size={20} strokeWidth={1.5} className="text-white" />
+              <span className="text-[11px] font-light mt-0.5 text-gray-400">Contato</span>
+            </Link>
+
+            <Link href="/noticias" className="flex flex-col items-center justify-center text-white/70 active:text-white transition">
+              <Newspaper size={20} strokeWidth={1.5} className="text-white" />
+              <span className="text-[11px] font-light mt-0.5 text-gray-400">Notícias</span>
+            </Link>
+
+            <button 
+              onClick={() => setIsSearchOpen(true)}
+              className="flex flex-col items-center justify-center text-white/70 active:text-white transition cursor-pointer"
             >
-              <Link href="#servicos" className="flex items-center space-x-3 text-white/80" onClick={() => setIsOpen(false)}>
-                <Handshake size={20} /> <span className="text-lg">Serviços</span>
-              </Link>
-              <Link href="#contato" className="flex items-center space-x-3 text-white/80" onClick={() => setIsOpen(false)}>
-                <MessageSquare size={20} /> <span className="text-lg">Contato</span>
-              </Link>
-              <Link href="#noticias" className="flex items-center space-x-3 text-white/80" onClick={() => setIsOpen(false)}>
-                <Newspaper size={20} /> <span className="text-lg">Notícias</span>
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              <Search size={20} strokeWidth={1.5} className="text-white" />
+              <span className="text-[11px] font-light mt-0.5 text-gray-400">Pesquisa</span>
+            </button>
+          </div>
+        </div>
       </nav>
 
-      {/* --- MODAL DE BUSCA (Aparece sobre tudo) --- */}
+      {/* Espaçador Dinâmico */}
+      <div className="h-32 md:h-16" />
+
+      {/* --- MODAL DE BUSCA --- */}
       <AnimatePresence>
         {isSearchOpen && (
           <motion.div 
@@ -111,8 +119,9 @@ export default function Navbar() {
             <button 
               onClick={() => setIsSearchOpen(false)}
               className="absolute top-10 right-10 text-white/50 hover:text-white transition cursor-pointer"
+              type="button"
             >
-              <X size={32} />
+              <span className="text-2xl font-light">✕</span>
             </button>
 
             <form onSubmit={handleSearch} className="w-full max-w-3xl">

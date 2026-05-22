@@ -2,6 +2,8 @@
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; // Importado para gerenciar o histórico de navegação
+import { ArrowLeft } from "lucide-react"; // Importado o ícone minimalista de seta
 import { HiOutlineShieldCheck } from "react-icons/hi"; // Ícone de escudo estável
 
 import Responsabilidade from "@/app/quem-somos/responsabilidade";
@@ -17,8 +19,22 @@ const fadeInVariant: Variants = {
 };
 
 export default function QuemSomosPage() {
+  const router = useRouter(); // Instanciando o roteador
+
   return (
-    <main className="w-full">
+    <main className="w-full relative">
+      
+      {/* BOTÃO VOLTAR MINIMALISTA (Seta Pura) */}
+      <div className="absolute top-24 left-6 md:left-12 z-40">
+        <button
+          onClick={() => router.back()}
+          className="text-white/60 hover:text-white transition group cursor-pointer p-1"
+          aria-label="Voltar para a página anterior"
+        >
+          <ArrowLeft size={24} strokeWidth={1.5} className="group-hover:-translate-x-1 transition-transform" />
+        </button>
+      </div>
+
       {/* SEÇÃO HERO: NOSSA ESSÊNCIA */}
       <section className="relative w-full min-h-[650px] md:min-h-[800px] flex items-center justify-center overflow-hidden">
         {/* CAMADA 1: IMAGEM DE FUNDO */}
@@ -78,7 +94,7 @@ export default function QuemSomosPage() {
             São mais de 25 Anos
           </h2>
           <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
-            Dedicados a oferecer soluções jurídicas de excelência para todo Brasil. 
+            Dedicados a oferecer solutions jurídicas de excelência para todo Brasil. 
             Atuando com seriedade para promover a segurança e confiança de nossos 
             clientes em todas as suas questões legais.
           </p>
@@ -111,28 +127,18 @@ export default function QuemSomosPage() {
       </div>
 
       {/* BLOCO 3: RESPONSABILIDADE SOCIAL */}
-      <div className="bg-white py-24">
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInVariant}
-          className="container mx-auto px-6 text-center max-w-4xl"
-        >
-          <h2 className="text-[#001D3D] text-3xl md:text-4xl font-bold mb-6 uppercase tracking-wider">
-            Responsabilidade social
-          </h2>
-          {/* Espaço reservado para o texto de responsabilidade social se houver */}
-        </motion.div>
-      </div>
       <Responsabilidade />
+      
       {/* Botão Superior: Falar com Especialista */}
+      <div className="flex justify-center w-full">
         <Link 
-          href="/contato" 
+          href="https://wa.me/5511992175115" target="_blank"
           className="bg-[#001D3D] text-white px-12 py-3 rounded-full font-medium hover:bg-[#003566] transition-all duration-300 mb-10 shadow-lg text-lg"
         >
           Falar com um especialista
         </Link>
+      </div>
+        
       <SolucoesPorPerfil />
     </main>
   );

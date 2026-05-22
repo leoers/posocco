@@ -55,7 +55,7 @@ export default function TemplateSolucoes({ titulo, imagemFundo, dados = [] }: Te
           className="object-cover" 
           priority 
         />
-        <div className="absolute inset-0 bg-[#001D3D]/85 z-10" />
+        <div className="absolute inset-0 bg-[#001D3D]/15 z-10" />
         <div className="container mx-auto px-6 relative z-20 flex items-center justify-center">
           <button 
             onClick={() => router.back()}

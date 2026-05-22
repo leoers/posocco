@@ -2,8 +2,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation"; 
+import { ArrowLeft } from "lucide-react"; 
 
 export default function Contato() {
+  const router = useRouter(); 
   const [form, setForm] = useState({ nome: "", email: "", telefone: "", assunto: "", mensagem: "" });
   const [status, setStatus] = useState<{ sucesso: boolean; mensagem: string } | null>(null);
   const [enviando, setEnviando] = useState(false);
@@ -12,24 +15,20 @@ export default function Contato() {
     e.preventDefault();
     setEnviando(true);
 
-    // Dados extraídos do formulário original do site
     const formData = new FormData();
-    formData.append("_wpcf7", "424"); // ID Numérico real
+    formData.append("_wpcf7", "424");
     formData.append("_wpcf7_version", "6.1.1");
     formData.append("_wpcf7_locale", "pt_BR");
     formData.append("_wpcf7_unit_tag", "wpcf7-f424-p422-o1");
     formData.append("_wpcf7_container_post", "422");
 
-    // Mapeamento dos campos
     formData.append("your-name", form.nome);
     formData.append("your-email", form.email);
     formData.append("your-subject", form.assunto);
     formData.append("your-message", form.mensagem);
-    // Se o seu formulário no WP tiver campo de telefone, mude para o nome correto (ex: your-tel)
     formData.append("your-tel", form.telefone); 
 
     try {
-      // URL ajustada com o ID numérico 424
       const response = await fetch("https://posocco.com.br/wp-json/contact-form-7/v1/contact-forms/424/feedback", {
         method: "POST",
         body: formData,
@@ -37,7 +36,6 @@ export default function Contato() {
 
       const result = await response.json();
 
-      // Verificação de sucesso padrão do Contact Form 7
       if (result.status === "mail_sent") {
         setStatus({ sucesso: true, mensagem: "Mensagem enviada com sucesso!" });
         setForm({ nome: "", email: "", telefone: "", assunto: "", mensagem: "" });
@@ -52,8 +50,21 @@ export default function Contato() {
   };
 
   return (
-    <main className="bg-[#001D3D] min-h-screen flex items-center justify-center pt-20 pb-12 px-6">
-      <div className="container mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <main className="bg-[#001D3D] min-h-screen flex items-center justify-center pt-24 pb-12 px-6 relative">
+      
+      {/* BOTÃO VOLTAR (Apenas a Seta Pura) */}
+      <div className="absolute top-24 left-6 md:left-12 z-40">
+        <button
+          onClick={() => router.back()}
+          className="text-white/60 hover:text-white transition group cursor-pointer p-1"
+          aria-label="Voltar para a página anterior"
+        >
+          {/* Aumentei levemente o size para 24px para manter uma boa área de toque no mobile */}
+          <ArrowLeft size={24} strokeWidth={1.5} className="group-hover:-translate-x-1 transition-transform" />
+        </button>
+      </div>
+
+      <div className="container mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full mt-12 lg:mt-0">
         
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left text-white space-y-4">
           <div className="relative w-72 h-32 md:w-96 md:h-40">
@@ -70,6 +81,7 @@ export default function Contato() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
           className="bg-white p-8 md:p-10 rounded-[40px] shadow-2xl max-w-lg w-full mx-auto"
         >
           <h1 className="text-xl font-normal text-[#4D4D4D] mb-2 tracking-tight">

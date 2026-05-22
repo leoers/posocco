@@ -5,7 +5,7 @@ export default function PaginaVoce() {
     {
       id: "bancario",
       categoria: "Direito Bancário e Financeiro",
-      imagemCard: "/images/card-bancario.jpg",
+      imagemCard: "/images/carousel/c-financeiro.png",
       resumo: "Combate a Abusos em Contratos Bancários.",
       accordions: [
         {
@@ -29,7 +29,7 @@ export default function PaginaVoce() {
     {
       id: "civil",
       categoria: "Direito Civil",
-      imagemCard: "/images/card-civil.jpg",
+      imagemCard: "/images/carousel/c-direito-civil.png",
       resumo: "Relações Contratuais e Obrigações.",
       accordions: [
         {
@@ -49,7 +49,7 @@ export default function PaginaVoce() {
     {
       id: "condominial",
       categoria: "Direito Condominial",
-      imagemCard: "/images/card-condominio.jpg",
+      imagemCard: "/images/carousel/c-direito-condominial.png",
       resumo: "Assessoria completa para condomínios e moradores.",
       accordions: [
         {
@@ -67,7 +67,7 @@ export default function PaginaVoce() {
     {
       id: "consumidor",
       categoria: "Direito do Consumidor",
-      imagemCard: "/images/card-consumidor.jpg",
+      imagemCard: "/images/carousel/c-direito-consumidor.png",
       resumo: "Proteção Contratual e Garantia de Direitos.",
       accordions: [
         {
@@ -87,7 +87,7 @@ export default function PaginaVoce() {
     {
       id: "digital",
       categoria: "Direito Digital",
-      imagemCard: "/images/card-digital.jpg",
+      imagemCard: "/images/carousel/c-direito-digital.png",
       resumo: "Proteção de Dados e Crimes Cibernéticos.",
       accordions: [
         {
@@ -107,7 +107,7 @@ export default function PaginaVoce() {
     {
       id: "familia",
       categoria: "Direito de Família",
-      imagemCard: "/images/card-familia.jpg",
+      imagemCard: "/images/carousel/c-direito-familia1.png",
       resumo: "Questões Matrimoniais, Filiação e Sucessões.",
       accordions: [
         {
@@ -127,7 +127,7 @@ export default function PaginaVoce() {
     {
       id: "imobiliario",
       categoria: "Direito Imobiliário",
-      imagemCard: "/images/card-imobiliario.jpg",
+      imagemCard: "/images/carousel/c-direito-imobiliario1.png",
       resumo: "Segurança Jurídica em Negócios Imobiliários.",
       accordions: [
         {
@@ -146,7 +146,7 @@ export default function PaginaVoce() {
     {
       id: "previdenciario",
       categoria: "Direito Previdenciário",
-      imagemCard: "/images/card-previdenciario.jpg",
+      imagemCard: "/images/carousel/c-direito-previdenciario.png",
       resumo: "Concessão e Revisão de Benefícios.",
       accordions: [
         {
@@ -162,7 +162,7 @@ export default function PaginaVoce() {
     {
       id: "saude",
       categoria: "Direito da Saúde",
-      imagemCard: "/images/card-saude.jpg",
+      imagemCard: "/images/carousel/card-saude.png",
       resumo: "Garantia de Acesso a Tratamentos.",
       accordions: [
         {
@@ -178,7 +178,7 @@ export default function PaginaVoce() {
     {
       id: "trabalho",
       categoria: "Direito do Trabalho",
-      imagemCard: "/images/card-trabalho.jpg",
+      imagemCard: "/images/carousel/card-trabalho.png",
       resumo: "Defesa dos Direitos do Trabalhador.",
       accordions: [
         {
@@ -198,7 +198,7 @@ export default function PaginaVoce() {
     {
       id: "transporte",
       categoria: "Direito de Transporte",
-      imagemCard: "/images/card-transporte.jpg",
+      imagemCard: "/images/carousel/card-transporte.png",
       resumo: "Responsabilidade Civil e Direitos do Passageiro.",
       accordions: [
         {
@@ -210,7 +210,7 @@ export default function PaginaVoce() {
     {
       id: "tributario",
       categoria: "Direito Tributário",
-      imagemCard: "/images/card-tributario.jpg",
+      imagemCard: "/images/carousel/card-tributario.png",
       resumo: "Defesa Administrativa e Judicial Fiscal.",
       accordions: [
         {
@@ -222,7 +222,7 @@ export default function PaginaVoce() {
     {
       id: "arbitragem",
       categoria: "Arbitragem e Mediação",
-      imagemCard: "/images/card-arbitragem.jpg",
+      imagemCard: "/images/carousel/card-arbitragem.png",
       resumo: "Resolução Alternativa de Conflitos.",
       accordions: [
         {
@@ -240,7 +240,7 @@ export default function PaginaVoce() {
   return (
     <TemplateSolucoes 
       titulo="Soluções para você" 
-      imagemFundo="/images/hero-voce.jpg" 
+      imagemFundo="/images/carousel/bg-solucoes-vc.png" 
       dados={dadosVoce} 
     />
   );

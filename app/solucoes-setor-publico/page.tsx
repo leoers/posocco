@@ -5,7 +5,7 @@ export default function PaginaSetorPublico() {
     {
       id: "concursos",
       categoria: "Concursos Públicos",
-      imagemCard: "/images/cards/concurso.jpg",
+      imagemCard: "/images/carousel/c-concurso-publico.png",
       resumo: "Defesa técnica de candidatos contra ilegalidades e critérios subjetivos.",
       accordions: [
         {
@@ -30,7 +30,7 @@ export default function PaginaSetorPublico() {
     {
       id: "estagio",
       categoria: "Estágio Probatório",
-      imagemCard: "/images/cards/estagio.jpg",
+      imagemCard: "/images/carousel/c-estagio-probatorio.png",
       resumo: "Acompanhamento jurídico para garantir transparência e objetividade na avaliação.",
       accordions: [
         {
@@ -47,7 +47,7 @@ export default function PaginaSetorPublico() {
     {
       id: "servidor",
       categoria: "Servidor Público",
-      imagemCard: "/images/cards/servidor.jpg",
+      imagemCard: "/images/carousel/c-servidor-publico.png",
       resumo: "Proteção de direitos remuneratórios, previdenciários e disciplinares.",
       accordions: [
         {
@@ -73,7 +73,7 @@ export default function PaginaSetorPublico() {
     {
       id: "gestor",
       categoria: "Gestor Público",
-      imagemCard: "/images/cards/gestor.jpg",
+      imagemCard: "/images/carousel/c-gestor-publico.png",
       resumo: "Defesa estratégica contra improbidade, contas e fiscalização.",
       accordions: [
         {
@@ -98,7 +98,7 @@ export default function PaginaSetorPublico() {
     {
       id: "mandato",
       categoria: "Mandato e Eleitoral",
-      imagemCard: "/images/cards/eleitoral.jpg",
+      imagemCard: "/images/carousel/eleitoral.png",
       resumo: "Compliance eleitoral e defesa da liberdade de expressão política.",
       accordions: [
         {
@@ -125,7 +125,7 @@ export default function PaginaSetorPublico() {
   return (
     <TemplateSolucoes 
       titulo="Setor Público" 
-      imagemFundo="/images/hero-setor-publico.jpg" 
+      imagemFundo="/images/carousel/bg-solucoes-publico.png" 
       dados={dadosSetorPublico} 
     />
   );

@@ -5,7 +5,7 @@ export default function PaginaEmpresas() {
     {
       id: "compliance",
       categoria: "Compliance e Anticorrupção",
-      imagemCard: "/images/cards/compliance.jpg",
+      imagemCard: "/images/carousel/c-compliance.png",
       resumo: "Implementação e Defesa do Programa de Integridade e Ética Corporativa.",
       accordions: [
         {
@@ -25,7 +25,7 @@ export default function PaginaEmpresas() {
     {
       id: "contratos",
       categoria: "Contratos Empresariais",
-      imagemCard: "/images/cards/contratos.jpg",
+      imagemCard: "/images/carousel/c-contratos-empresarias.png",
       resumo: "Segurança Jurídica na Alocação de Riscos e Ativos.",
       accordions: [
         {
@@ -45,7 +45,7 @@ export default function PaginaEmpresas() {
     {
       id: "lgpd",
       categoria: "Direito Digital e LGPD",
-      imagemCard: "/images/cards/digital.jpg",
+      imagemCard: "/images/carousel/c-direito-digital-lgpd.png",
       resumo: "Governança de Dados e Defesa em Incidentes Tecnológicos.",
       accordions: [
         {
@@ -65,7 +65,7 @@ export default function PaginaEmpresas() {
     {
       id: "esg",
       categoria: "Direito Empresarial ESG",
-      imagemCard: "/images/cards/esg.jpg",
+      imagemCard: "/images/carousel/c-direito-empresarial.png",
       resumo: "Gestão Ambiental, Social e Governança Corporativa.",
       accordions: [
         {
@@ -81,7 +81,7 @@ export default function PaginaEmpresas() {
     {
       id: "falimentar",
       categoria: "Falimentar e Recuperação",
-      imagemCard: "/images/cards/recuperacao.jpg",
+      imagemCard: "/images/carousel/recuperacao.png",
       resumo: "Preservação da Empresa e Gestão de Insolvência.",
       accordions: [
         {
@@ -97,7 +97,7 @@ export default function PaginaEmpresas() {
     {
       id: "patrimonial",
       categoria: "Gestão Patrimonial",
-      imagemCard: "/images/cards/patrimonial.jpg",
+      imagemCard: "/images/carousel/patrimonial.png",
       resumo: "Estruturação Sucessória e Proteção de Ativos.",
       accordions: [
         {
@@ -113,7 +113,7 @@ export default function PaginaEmpresas() {
     {
       id: "mobilidade",
       categoria: "Mobilidade Global",
-      imagemCard: "/images/cards/mobilidade.jpg",
+      imagemCard: "/images/carousel/mobilidade.png",
       resumo: "Vistos, Expatriação e Compliance Internacional.",
       accordions: [
         {
@@ -129,7 +129,7 @@ export default function PaginaEmpresas() {
     {
       id: "ppp",
       categoria: "Parceria Público-Privada",
-      imagemCard: "/images/cards/ppp.jpg",
+      imagemCard: "/images/carousel/ppp.png",
       resumo: "Modelagem Jurídica e Gestão de Concessões.",
       accordions: [
         {
@@ -145,7 +145,7 @@ export default function PaginaEmpresas() {
     {
       id: "intelectual",
       categoria: "Propriedade Intelectual",
-      imagemCard: "/images/cards/intelectual.jpg",
+      imagemCard: "/images/carousel/intelectual.png",
       resumo: "Proteção de Marcas, Patentes e Ativos Digitais.",
       accordions: [
         {
@@ -161,7 +161,7 @@ export default function PaginaEmpresas() {
     {
       id: "previdenciario-emp",
       categoria: "Previdenciário Empresarial",
-      imagemCard: "/images/cards/prev-emp.jpg",
+      imagemCard: "/images/carousel/prev-emp.png",
       resumo: "Otimização de Encargos e Gestão de Riscos do Trabalho.",
       accordions: [
         {
@@ -177,7 +177,7 @@ export default function PaginaEmpresas() {
     {
       id: "consumo",
       categoria: "Relações de Consumo",
-      imagemCard: "/images/cards/consumo.jpg",
+      imagemCard: "/images/carousel/consumo.png",
       resumo: "Defesa e Gestão de Passivo Consumerista.",
       accordions: [
         {
@@ -193,7 +193,7 @@ export default function PaginaEmpresas() {
     {
       id: "societario",
       categoria: "Direito Societário",
-      imagemCard: "/images/cards/societario.jpg",
+      imagemCard: "/images/carousel/societario.png",
       resumo: "Governança Corporativa e Operações Estruturadas.",
       accordions: [
         {
@@ -209,7 +209,7 @@ export default function PaginaEmpresas() {
     {
       id: "trabalho-emp",
       categoria: "Direito do Trabalho",
-      imagemCard: "/images/cards/trab-emp.jpg",
+      imagemCard: "/images/carousel/trab-emp.png",
       resumo: "Compliance Trabalhista e Relações Sindicais.",
       accordions: [
         {
@@ -225,7 +225,7 @@ export default function PaginaEmpresas() {
     {
       id: "tributario-emp",
       categoria: "Tributário Empresarial",
-      imagemCard: "/images/cards/trib-emp.jpg",
+      imagemCard: "/images/carousel/trib-emp.png",
       resumo: "Planejamento Tributário e Recuperação de Créditos.",
       accordions: [
         {
@@ -243,7 +243,7 @@ export default function PaginaEmpresas() {
   return (
     <TemplateSolucoes 
       titulo="Soluções para sua empresa" 
-      imagemFundo="/images/hero-empresa.jpg" 
+      imagemFundo="/images/carousel/bg-solucoes-empresa.png" 
       dados={dadosEmpresas} 
     />
   );

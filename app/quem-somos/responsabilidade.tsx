@@ -16,7 +16,7 @@ export default function ResponsabilidadeSocial() {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6 md:px-12">
-        <h2 className="text-[#001D3D] text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-widest">
+        <h2 className="text-[#001D3D] text-3xl md:text-4xl font-bold text-center mb-16 tracking-widest">
           Responsabilidade social
         </h2>
 

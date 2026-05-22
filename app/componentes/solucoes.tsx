@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "next/link"; // Importado corretamente
 
 const solucoes = [
   {
@@ -28,9 +28,9 @@ export default function Solucoes() {
         {solucoes.map((item, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
+            initial={{ opacity: 0, y: 10 }} // Adicionado um leve efeito de subida
+            animate={{ opacity: 1, y: 0 }}   // CORRIGIDO: Garante a exibição ao voltar no histórico
+            transition={{ duration: 0.6, delay: index * 0.1 }}
             className="relative group overflow-hidden w-full h-full rounded-[2rem] md:rounded-none" 
           >
             <Image
@@ -40,15 +40,10 @@ export default function Solucoes() {
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             
-            {/* DEGRADÊ CIRÚRGICO: 
-                - Começa com o azul correto #272E42 (com opacidade de 75% para não virar um bloco sólido)
-                - Mantém essa cobertura firme até os 40% da altura da caixa
-                - Na metade (50%), ele já suaviza drasticamente para 20% de opacidade
-                - E termina totalmente transparente (to-transparent) na base, limpando a foto dos personagens */}
+            {/* DEGRADÊ CIRÚRGICO */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#272E42]/75 from-40% via-[#272E42]/20 via-50% to-transparent transition-opacity duration-500 group-hover:opacity-85" />
 
             <div className="relative z-10 h-full flex flex-col items-center justify-center p-4 text-center">
-              {/* Título posicionado na área de cobertura para contraste perfeito */}
               <h3 className="text-white font-light mb-6 tracking-wide drop-shadow-md text-lg min-[760px]:text-xl xl:text-2xl flex flex-col items-center">
                 Soluções 
                 <span className="font-bold block [@media(min-width:760px)_and_(max-width:986px)]:max-w-[150px]">
@@ -57,15 +52,15 @@ export default function Solucoes() {
               </h3>
 
               <div className="flex flex-row gap-2 min-[760px]:gap-3 w-full justify-center px-2">
-                <a
+                {/* CORRIGIDO: Alterado de <a> para <Link> para manter a navegação SPA interna */}
+                <Link
                   href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="border border-white/40 text-white py-2 rounded-full text-[10px] min-[760px]:text-xs font-medium hover:bg-white/10 transition-all text-center backdrop-blur-sm px-4 min-[760px]:px-6 min-[1210px]:px-8 min-[760px]:min-w-[100px] min-[1210px]:min-w-[130px]"
                 >
                   Serviços
-                </a>
+                </Link>
                 
+                {/* Mantido como <a> porque é um link externo (WhatsApp) */}
                 <a
                   href="https://wa.me/5511992175115"
                   target="_blank"
