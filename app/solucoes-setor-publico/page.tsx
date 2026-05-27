@@ -98,7 +98,7 @@ export default function PaginaSetorPublico() {
     {
       id: "mandato",
       categoria: "Mandato e Eleitoral",
-      imagemCard: "/images/carousel/eleitoral.png",
+      imagemCard: "/images/carousel/c-pp.png",
       resumo: "Compliance eleitoral e defesa da liberdade de expressão política.",
       accordions: [
         {

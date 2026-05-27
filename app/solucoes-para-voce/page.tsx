@@ -107,7 +107,7 @@ export default function PaginaVoce() {
     {
       id: "familia",
       categoria: "Direito de Família",
-      imagemCard: "/images/carousel/c-direito-familia1.png",
+      imagemCard: "/images/carousel/c-direito-familia2.png",
       resumo: "Questões Matrimoniais, Filiação e Sucessões.",
       accordions: [
         {
@@ -162,7 +162,7 @@ export default function PaginaVoce() {
     {
       id: "saude",
       categoria: "Direito da Saúde",
-      imagemCard: "/images/carousel/card-saude.png",
+      imagemCard: "/images/carousel/c-direito-saude2.png",
       resumo: "Garantia de Acesso a Tratamentos.",
       accordions: [
         {
@@ -178,7 +178,7 @@ export default function PaginaVoce() {
     {
       id: "trabalho",
       categoria: "Direito do Trabalho",
-      imagemCard: "/images/carousel/card-trabalho.png",
+      imagemCard: "/images/carousel/c-direito-trabalho.png",
       resumo: "Defesa dos Direitos do Trabalhador.",
       accordions: [
         {
@@ -198,7 +198,7 @@ export default function PaginaVoce() {
     {
       id: "transporte",
       categoria: "Direito de Transporte",
-      imagemCard: "/images/carousel/card-transporte.png",
+      imagemCard: "/images/carousel/c-direito-transporte.png",
       resumo: "Responsabilidade Civil e Direitos do Passageiro.",
       accordions: [
         {
@@ -210,7 +210,7 @@ export default function PaginaVoce() {
     {
       id: "tributario",
       categoria: "Direito Tributário",
-      imagemCard: "/images/carousel/card-tributario.png",
+      imagemCard: "/images/carousel/c-direito-tributario.png",
       resumo: "Defesa Administrativa e Judicial Fiscal.",
       accordions: [
         {
@@ -222,7 +222,7 @@ export default function PaginaVoce() {
     {
       id: "arbitragem",
       categoria: "Arbitragem e Mediação",
-      imagemCard: "/images/carousel/card-arbitragem.png",
+      imagemCard: "/images/carousel/c-arbitragem.png",
       resumo: "Resolução Alternativa de Conflitos.",
       accordions: [
         {

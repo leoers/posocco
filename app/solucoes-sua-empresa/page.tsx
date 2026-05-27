@@ -81,7 +81,7 @@ export default function PaginaEmpresas() {
     {
       id: "falimentar",
       categoria: "Falimentar e Recuperação",
-      imagemCard: "/images/carousel/recuperacao.png",
+      imagemCard: "/images/carousel/c-recuperacao.png",
       resumo: "Preservação da Empresa e Gestão de Insolvência.",
       accordions: [
         {
@@ -97,7 +97,7 @@ export default function PaginaEmpresas() {
     {
       id: "patrimonial",
       categoria: "Gestão Patrimonial",
-      imagemCard: "/images/carousel/patrimonial.png",
+      imagemCard: "/images/carousel/c-patrimonial.png",
       resumo: "Estruturação Sucessória e Proteção de Ativos.",
       accordions: [
         {
@@ -113,7 +113,7 @@ export default function PaginaEmpresas() {
     {
       id: "mobilidade",
       categoria: "Mobilidade Global",
-      imagemCard: "/images/carousel/mobilidade.png",
+      imagemCard: "/images/carousel/c-mobilidade.png",
       resumo: "Vistos, Expatriação e Compliance Internacional.",
       accordions: [
         {
@@ -129,7 +129,7 @@ export default function PaginaEmpresas() {
     {
       id: "ppp",
       categoria: "Parceria Público-Privada",
-      imagemCard: "/images/carousel/ppp.png",
+      imagemCard: "/images/carousel/c-pp.png",
       resumo: "Modelagem Jurídica e Gestão de Concessões.",
       accordions: [
         {
