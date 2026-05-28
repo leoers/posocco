@@ -35,7 +35,7 @@ export default function Navbar() {
               className="flex items-center absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0"
             >
               <Image 
-                src="/images/logo-posocco.png"
+                src="/images/logo-posocco-geral.png"
                 alt="Posocco Advogados & Consultores"
                 width={220} 
                 height={50} 
