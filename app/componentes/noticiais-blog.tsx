@@ -1,21 +1,24 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface Post {
   id: number;
   title: { rendered: string };
+  excerpt: { rendered: string };
+  date: string;
   link: string;
+  slug: string;
   _embedded?: {
     "wp:featuredmedia"?: Array<{ source_url: string }>;
   };
 }
 
-// Marcado como async para buscar os dados diretamente ou use um Client Component com useEffect
 export default async function NoticiasBlog() {
   let posts: Post[] = [];
 
   try {
     const res = await fetch("https://posocco.com.br/wp-json/wp/v2/posts?per_page=6&_embed", {
-      next: { revalidate: 3600 } // Opcional: cache de 1 hora
+      next: { revalidate: 3600 } // Cache de 1 hora
     });
     posts = await res.json();
   } catch (error) {
@@ -29,34 +32,43 @@ export default async function NoticiasBlog() {
       <div className="container mx-auto max-w-[1600px] px-4 md:px-12">
         
         {/* Grid: 1 coluna no mobile, 2 no tablet e 3 no desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           {posts.map((post) => {
             const imageUrl = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.jpg";
             
             return (
-              <a 
+              <Link 
                 key={post.id} 
-                href={post.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group block w-full"
+                href={`/noticias/${post.slug}`}
+                className="group block w-full cursor-pointer"
               >
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[1.5rem] md:rounded-[2.5rem] mb-4 md:mb-6 shadow-sm bg-gray-100">
+                {/* Imagem com hover igual ao notícias */}
+                <div className="relative w-full h-[250px] overflow-hidden rounded-[20px] mb-6">
                   <Image
                     src={imageUrl}
                     alt={post.title.rendered}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
 
-                <div className="min-h-[80px] md:min-h-[100px]">
-                  <h3 
-                    className="text-[#333] font-bold text-lg md:text-xl lg:text-2xl leading-tight line-clamp-3 group-hover:text-[#001D3D] transition-colors"
+                {/* Conteúdo do post - igual ao notícias */}
+                <div className="space-y-3">
+                  <h2 
+                    className="text-xl font-bold text-[#1A1A1A] line-clamp-2 leading-tight group-hover:text-[#001D3D] transition-colors"
                     dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                   />
+                  
+                  <div 
+                    className="text-gray-500 text-sm line-clamp-3 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                  />
+                  
+                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest pt-2">
+                    {new Date(post.date).toLocaleDateString('pt-BR')}
+                  </p>
                 </div>
-              </a>
+              </Link>
             );
           })}
         </div>
