@@ -145,7 +145,7 @@ export default function PaginaEmpresas() {
     {
       id: "intelectual",
       categoria: "Propriedade Intelectual",
-      imagemCard: "/images/carousel/intelectual.png",
+      imagemCard: "/images/carousel/c-intelectual.png",
       resumo: "Proteção de Marcas, Patentes e Ativos Digitais.",
       accordions: [
         {
@@ -161,7 +161,7 @@ export default function PaginaEmpresas() {
     {
       id: "previdenciario-emp",
       categoria: "Previdenciário Empresarial",
-      imagemCard: "/images/carousel/prev-emp.png",
+      imagemCard: "/images/carousel/c-prev-emp.png",
       resumo: "Otimização de Encargos e Gestão de Riscos do Trabalho.",
       accordions: [
         {
@@ -177,7 +177,7 @@ export default function PaginaEmpresas() {
     {
       id: "consumo",
       categoria: "Relações de Consumo",
-      imagemCard: "/images/carousel/consumo.png",
+      imagemCard: "/images/carousel/c-consumo.png",
       resumo: "Defesa e Gestão de Passivo Consumerista.",
       accordions: [
         {
@@ -193,7 +193,7 @@ export default function PaginaEmpresas() {
     {
       id: "societario",
       categoria: "Direito Societário",
-      imagemCard: "/images/carousel/societario.png",
+      imagemCard: "/images/carousel/c-societario.png",
       resumo: "Governança Corporativa e Operações Estruturadas.",
       accordions: [
         {
@@ -209,7 +209,7 @@ export default function PaginaEmpresas() {
     {
       id: "trabalho-emp",
       categoria: "Direito do Trabalho",
-      imagemCard: "/images/carousel/trab-emp.png",
+      imagemCard: "/images/carousel/c-trab-emp.png",
       resumo: "Compliance Trabalhista e Relações Sindicais.",
       accordions: [
         {
@@ -225,7 +225,7 @@ export default function PaginaEmpresas() {
     {
       id: "tributario-emp",
       categoria: "Tributário Empresarial",
-      imagemCard: "/images/carousel/trib-emp.png",
+      imagemCard: "/images/carousel/c-trib-emp.png",
       resumo: "Planejamento Tributário e Recuperação de Créditos.",
       accordions: [
         {
