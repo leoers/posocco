@@ -2,13 +2,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Importado para gerenciar o histórico
-import { ArrowLeft } from "lucide-react"; // Importado o ícone de seta
+import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getPosts, getCategories } from "../componentes/wordpress";
 
 export default function Noticias() {
-  const router = useRouter(); // Instanciando o roteador
+  const router = useRouter();
   const [posts, setPosts] = useState<any[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<number | undefined>(undefined);
@@ -16,9 +16,8 @@ export default function Noticias() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  // CONTROLADORES DE INTERFACE (Altere para 'true' para reativar os blocos no futuro)
-  const showCategories = false; // Oculta a barra de filtros da imagem_288126.png
-  const showNewsletter = false; // Oculta o card "Acompanhe a Posocco!"
+  const showCategories = false;
+  const showNewsletter = false;
 
   useEffect(() => {
     async function loadInitialData() {
@@ -55,8 +54,6 @@ export default function Noticias() {
 
   return (
     <main className="bg-white min-h-screen pt-28 pb-20 relative">
-      
-      {/* BOTÃO VOLTAR MINIMALISTA (Seta na cor Azul do Menu) */}
       <div className="absolute top-24 left-6 md:left-12 z-40">
         <button
           onClick={() => router.back()}
@@ -68,12 +65,9 @@ export default function Noticias() {
       </div>
 
       <div className="container mx-auto px-6">
-        
-        {/* Cabeçalho de Título */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-light text-gray-400 mb-6">Notícias</h1>
           
-          {/* BLOCO DA IMAGEM (FILTROS): Envelopado na condicional showCategories */}
           {showCategories && (
             <div className="flex flex-wrap justify-center gap-4 text-sm font-bold text-gray-500 uppercase tracking-widest">
               <button 
@@ -95,11 +89,15 @@ export default function Noticias() {
           )}
         </div>
 
-        {/* Grid de 3 colunas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 items-start">
           <AnimatePresence mode="popLayout">
             {posts.map((post) => {
-              const image = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || "/images/placeholder.jpg";
+              // Lógica de correção de domínio para carregar a imagem correta
+              const rawImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+              const image = rawImage 
+                ? rawImage.replace('posocco.com.br', 'posoccowp.xyz') 
+                : "/images/placeholder.jpg";
+
               return (
                 <motion.article 
                   key={post.id}
@@ -110,7 +108,12 @@ export default function Noticias() {
                 >
                   <Link href={`/noticias/${post.slug}`}>
                     <div className="relative h-[250px] w-full mb-6 overflow-hidden rounded-[20px]">
-                      <Image src={image} alt="" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <Image 
+                        src={image} 
+                        alt={post.title.rendered.replace(/<[^>]*>/g, '')} 
+                        fill 
+                        className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                      />
                     </div>
                     <div className="space-y-3">
                       <h2 className="text-xl font-bold text-[#1A1A1A] line-clamp-2 leading-tight" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
@@ -125,8 +128,7 @@ export default function Noticias() {
             })}
           </AnimatePresence>
 
-          {/* CARD DE ASSINATURA: Ocultado via showNewsletter */}
-          {showNewsletter && (
+          {/* {showNewsletter && (
             <motion.div 
               layout
               className="flex flex-col justify-end pb-4 h-full min-h-[300px]"
@@ -135,16 +137,9 @@ export default function Noticias() {
                 <h3 className="text-[22px] font-medium text-[#4D4D4D] mb-2 leading-tight">
                   Acompanhe a Posocco!
                 </h3>
-
-                {/* Linha Decorativa Bicolor */}
                 <div className="relative w-full h-[3px] bg-[#D1D1D1] mb-10 rounded-full overflow-hidden">
-                  <div 
-                    className="absolute left-0 top-0 h-full bg-[#001D3D] rounded-full" 
-                    style={{ width: '45%' }}
-                  ></div>
+                  <div className="absolute left-0 top-0 h-full bg-[#001D3D] rounded-full" style={{ width: '45%' }}></div>
                 </div>
-
-                {/* Input de E-mail Estilo Pílula */}
                 <div className="relative">
                   <input 
                     type="email" 
@@ -154,10 +149,9 @@ export default function Noticias() {
                 </div>
               </div>
             </motion.div>
-          )}
+          )} */}
         </div>
 
-        {/* Botão Ver Mais */}
         {hasMore && !loading && (
           <div className="mt-24 text-center">
             <button 

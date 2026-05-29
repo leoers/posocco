@@ -1,3 +1,4 @@
+// app/noticias/[slug]/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -28,7 +29,8 @@ export default function NoticiaIndividual() {
       if (!slug) return;
       try {
         setLoading(true);
-        const response = await fetch(`https://posocco.com.br/wp-json/wp/v2/posts?slug=${slug}&_embed`);
+        // URL da API atualizada
+        const response = await fetch(`https://posoccowp.xyz/wp/wp-json/wp/v2/posts?slug=${slug}&_embed`);
         const data = await response.json();
         if (data && data.length > 0) {
           setPost(data[0]);
@@ -69,7 +71,6 @@ export default function NoticiaIndividual() {
     const youtubeLinkMatch = html.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?([^\s&"']+)/);
     if (youtubeLinkMatch) {
       let videoId = youtubeLinkMatch[1];
-      // Limpar parâmetros extras
       videoId = videoId.split('?')[0].split('&')[0];
       setVideoUrl(`https://www.youtube.com/embed/${videoId}`);
       return;
@@ -94,40 +95,29 @@ export default function NoticiaIndividual() {
   const getEmbedUrl = (url: string) => {
     if (!url) return '';
     
-    // YouTube
     if (url.includes('youtube.com/watch')) {
       const videoId = url.split('v=')[1]?.split('&')[0];
       return `https://www.youtube.com/embed/${videoId}`;
     }
-    // YouTu.be
     if (url.includes('youtu.be')) {
       const videoId = url.split('youtu.be/')[1]?.split('?')[0];
       return `https://www.youtube.com/embed/${videoId}`;
     }
-    // Vimeo
     if (url.includes('vimeo.com')) {
       const videoId = url.split('vimeo.com/')[1]?.split('?')[0];
       return `https://player.vimeo.com/video/${videoId}`;
     }
-    // Se já for embed
     if (url.includes('/embed/')) {
       return url;
     }
     return url;
   };
 
-  // Limpar o HTML do conteúdo
   const cleanContent = (html: string) => {
     if (!html) return '';
-    
     let cleaned = html;
-    
-    // Remover divs vazias do Elementor
     cleaned = cleaned.replace(/<div class="elementor-video"><\/div>/g, '');
-    
-    // Remover iframes de vídeo (já que vamos renderizar separadamente)
     cleaned = cleaned.replace(/<iframe[^>]*src=["'](https?:\/\/(?:www\.)?(?:youtube\.com|youtu\.be|vimeo\.com)[^"']*)["'][^>]*><\/iframe>/gi, '');
-    
     return cleaned;
   };
 
@@ -169,23 +159,17 @@ export default function NoticiaIndividual() {
 
   return (
     <main className="bg-white min-h-screen pt-28 pb-20">
-      {/* BOTÃO VOLTAR */}
       <div className="absolute top-24 left-6 md:left-12 z-40">
         <button
           onClick={() => router.back()}
           className="text-[#001D3D]/70 hover:text-[#001D3D] transition group cursor-pointer p-1"
           aria-label="Voltar"
         >
-          <ArrowLeft
-            size={24}
-            strokeWidth={1.5}
-            className="group-hover:-translate-x-1 transition-transform"
-          />
+          <ArrowLeft size={24} strokeWidth={1.5} className="group-hover:-translate-x-1 transition-transform" />
         </button>
       </div>
 
       <div className="container mx-auto px-6 max-w-4xl">
-        {/* Data do post */}
         <div className="text-center mb-6">
           <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest">
             {new Date(post.date).toLocaleDateString('pt-BR', {
@@ -196,13 +180,11 @@ export default function NoticiaIndividual() {
           </p>
         </div>
 
-        {/* Título */}
         <h1
           className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] text-center mb-12 leading-tight"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
 
-        {/* Imagem destacada */}
         {featuredImage && (
           <div className="relative w-full h-[400px] md:h-[500px] mb-12 rounded-2xl overflow-hidden shadow-lg">
             <Image
@@ -215,36 +197,11 @@ export default function NoticiaIndividual() {
           </div>
         )}
 
-        
-
-        {/* Conteúdo do post */}
         <article
-          className="
-            prose 
-            prose-lg 
-            max-w-none
-            prose-headings:text-[#001D3D]
-            prose-h1:text-3xl
-            prose-h2:text-2xl
-            prose-h3:text-xl
-            prose-p:text-gray-700
-            prose-p:leading-relaxed
-            prose-p:mb-6
-            prose-a:text-blue-700
-            prose-strong:text-black
-            prose-strong:font-bold
-            prose-img:rounded-xl
-            prose-img:w-full
-            prose-img:h-auto
-            prose-li:text-gray-700
-            prose-blockquote:border-l-4
-            prose-blockquote:border-[#001D3D]
-            prose-blockquote:pl-4
-            prose-blockquote:italic
-          "
+          className="prose prose-lg max-w-none prose-headings:text-[#001D3D] prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6 prose-a:text-blue-700 prose-strong:text-black prose-strong:font-bold prose-img:rounded-xl prose-img:w-full prose-img:h-auto prose-li:text-gray-700 prose-blockquote:border-l-4 prose-blockquote:border-[#001D3D] prose-blockquote:pl-4 prose-blockquote:italic"
           dangerouslySetInnerHTML={{ __html: cleanedContent }}
         />
-        {/* Vídeo - Versão nativa com iframe */}
+        
         {embedUrl && (
           <div className="mt-[50px] mb-12 rounded-2xl overflow-hidden shadow-lg">
             <div className="aspect-video">

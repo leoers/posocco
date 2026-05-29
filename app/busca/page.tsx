@@ -46,15 +46,15 @@ function BuscaContent() {
   const performSearch = async (searchTerm: string) => {
     setLoading(true);
     try {
-      // Buscar em posts
+      // Buscar em posts - URL atualizada
       const postsRes = await fetch(
-        `https://posocco.com.br/wp-json/wp/v2/posts?search=${encodeURIComponent(searchTerm)}&_embed&per_page=20`
+        `https://posoccowp.xyz/wp/wp-json/wp/v2/posts?search=${encodeURIComponent(searchTerm)}&_embed&per_page=20`
       );
       const posts = await postsRes.json();
 
-      // Buscar em páginas
+      // Buscar em páginas - URL atualizada
       const pagesRes = await fetch(
-        `https://posocco.com.br/wp-json/wp/v2/pages?search=${encodeURIComponent(searchTerm)}&_embed&per_page=10`
+        `https://posoccowp.xyz/wp/wp-json/wp/v2/pages?search=${encodeURIComponent(searchTerm)}&_embed&per_page=10`
       );
       const pages = await pagesRes.json();
 
