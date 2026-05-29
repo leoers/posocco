@@ -34,8 +34,8 @@ export default function Contato() {
                 <div className="text-gray-600 space-y-0 text-lg">
                   <p>+55 13 99200-9191</p>
                   <p>+55 11 99217-5115</p>
-                  <p>+55 11 97827-7147</p>
-                  <p>+55 11 97827-4041</p>
+                  {/* <p>+55 11 97827-7147</p> */}
+                  {/* <p>+55 11 97827-4041</p> */}
                 </div>
               </div>
               <div>

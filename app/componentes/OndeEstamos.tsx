@@ -68,8 +68,8 @@ export default function FooterInfo() {
               <div className="text-gray-600 space-y-0">
                 <p>+55 13 99200-9191</p>
                 <p>+55 11 99217-5115</p>
-                <p>+55 11 97827-7147</p>
-                <p>+55 11 97827-4041</p>
+                {/* <p>+55 11 97827-7147</p>
+                <p>+55 11 97827-4041</p> */}
               </div>
               <div className="pt-4">
                 <h3 className="text-[#001D3D] font-bold text-xl tracking-wide mb-2">E-mail</h3>
