@@ -30,7 +30,7 @@ export default function NoticiaIndividual() {
       try {
         setLoading(true);
         // URL da API atualizada
-        const response = await fetch(`https://posoccowp.xyz/wp/wp-json/wp/v2/posts?slug=${slug}&_embed`);
+        const response = await fetch(`http://posoccowp.xyz/wp/wp-json/wp/v2/posts?slug=${slug}&_embed`);
         const data = await response.json();
         if (data && data.length > 0) {
           setPost(data[0]);

@@ -8,7 +8,7 @@ const nextConfig = {
         pathname: '**', // Permite qualquer pasta dentro deste domínio
       },
       {
-        protocol: 'https',
+        protocol: 'http',
         hostname: 'posoccowp.xyz',
         pathname: '**', // Permite qualquer pasta dentro deste domínio
       },

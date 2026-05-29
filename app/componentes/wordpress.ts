@@ -1,7 +1,7 @@
 // src/lib/wordpress.ts
 
 // A base deve terminar no rest_route=
-const BASE_URL = 'https://posoccowp.xyz/wp/index.php?rest_route=';
+const BASE_URL = 'http://posoccowp.xyz/wp/index.php?rest_route=';
 
 export async function getPosts(perPage = 6, categoryId?: number, page = 1) {
   // Montagem correta: /wp/v2/posts seguido de & para os parâmetros
