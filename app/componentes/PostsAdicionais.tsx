@@ -8,6 +8,7 @@ interface Post {
   id: number;
   title: { rendered: string };
   link: string;
+  slug: string; // Adicionado para manter consistência
   _embedded?: {
     "wp:featuredmedia"?: Array<{ source_url: string }>;
   };
@@ -23,7 +24,8 @@ export default function PostsAdicionais() {
     if (showGrid) return;
     setLoading(true);
     try {
-      const res = await fetch("https://posocco.com.br/wp-json/wp/v2/posts?per_page=6&offset=6&_embed");
+      // URL ATUALIZADA PARA O NOVO DOMÍNIO
+      const res = await fetch("https://posoccowp.xyz/wp/index.php?rest_route=/wp/v2/posts&per_page=6&offset=6&_embed");
       const data = await res.json();
       setPosts(data);
       setShowGrid(true);
@@ -36,7 +38,6 @@ export default function PostsAdicionais() {
 
   const handleShowLess = () => {
     setShowGrid(false);
-    // Opcional: Rola a tela suavemente de volta para o topo da seção
     window.scrollTo({
       top: (gridRef.current?.offsetTop || 0) - 100,
       behavior: "smooth"
@@ -47,7 +48,6 @@ export default function PostsAdicionais() {
     <section ref={gridRef} className="w-full bg-white pb-20 overflow-hidden">
       <div className="container mx-auto max-w-[1600px] px-6 md:px-12">
         
-        {/* Botão Gatilho: Mostre Mais (Aparece apenas quando o grid está fechado) */}
         {!showGrid && (
           <div className="flex flex-col items-center justify-center gap-4 py-10">
             <button 
@@ -69,7 +69,6 @@ export default function PostsAdicionais() {
           </div>
         )}
 
-        {/* Grid de Posts Adicionais com Animação de Entrada/Saída */}
         <AnimatePresence>
           {showGrid && (
             <motion.div 
@@ -83,7 +82,8 @@ export default function PostsAdicionais() {
                   const imageUrl = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.jpg";
                   return (
                     <div key={post.id} className="w-full">
-                      <a href={post.link} target="_blank" rel="noopener noreferrer" className="group block w-full">
+                      {/* Link apontando para a rota interna /noticias/slug */}
+                      <a href={`/noticias/${post.slug}`} className="group block w-full">
                         <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[2.5rem] mb-6 shadow-sm border border-gray-100">
                           <Image
                             src={imageUrl}
@@ -104,10 +104,9 @@ export default function PostsAdicionais() {
                 })}
               </div>
 
-              {/* Botão CTA Central */}
               <div className="flex justify-center mt-12 mb-10">
                 <a 
-                  href="https://posocco.com.br/noticias" target="_blank"
+                  href="/noticias" // Alterado para rota interna do seu projeto Next.js
                   className="flex items-center gap-3 bg-[#001D3D] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-lg hover:shadow-xl"
                 >
                   Ver todas as notícias
@@ -115,14 +114,13 @@ export default function PostsAdicionais() {
                 </a>
               </div>
 
-              {/* Botão Mostrar Menos (Exatamente igual ao Mostrar Mais, mas invertido) */}
               <div className="flex flex-col items-center justify-center gap-4 py-6 border-t border-gray-100">
                 <button 
                   onClick={handleShowLess}
                   className="group flex flex-col items-center gap-2"
                 >
                   <motion.div
-                    animate={{ y: [0, -8, 0] }} // Seta "pulando" para cima
+                    animate={{ y: [0, -8, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full group-hover:bg-gray-50 transition-all"
                   >
