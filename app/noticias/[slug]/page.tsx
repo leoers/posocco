@@ -28,7 +28,6 @@ export default function NoticiaIndividual() {
       if (!slug) return;
       try {
         setLoading(true);
-        // Mantemos a URL original que você confirmou funcionar
         const response = await fetch(`https://posoccowp.xyz/wp/wp-json/wp/v2/posts?slug=${slug}&_embed`, {
           headers: { 'User-Agent': 'Mozilla/5.0' },
           cache: 'no-store'
@@ -60,7 +59,7 @@ export default function NoticiaIndividual() {
       return;
     }
 
-    // 2. Iframe (Mantendo a regex original)
+    // 2. Iframe
     const iframeMatch = html.match(/<iframe[^>]*src=["'](https?:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\/[^"']*)["'][^>]*>/i);
     if (iframeMatch) {
       setVideoUrl(iframeMatch[1]);
@@ -78,7 +77,6 @@ export default function NoticiaIndividual() {
 
   const getEmbedUrl = (url: string) => {
     if (!url) return '';
-    // Garante que o formato embed esteja correto
     if (url.includes('youtube.com/watch')) return url.replace('watch?v=', 'embed/');
     if (url.includes('youtu.be/')) return url.replace('youtu.be/', 'youtube.com/embed/');
     return url;
@@ -91,7 +89,18 @@ export default function NoticiaIndividual() {
   const embedUrl = videoUrl ? getEmbedUrl(videoUrl) : null;
 
   return (
-    <main className="bg-white min-h-screen pt-28 pb-20">
+    <main className="bg-white min-h-screen pt-28 pb-20 relative">
+      {/* Botão Voltar */}
+      <div className="absolute top-24 left-6 md:left-12 z-40">
+        <button
+          onClick={() => router.back()}
+          className="text-[#001D3D]/70 hover:text-[#001D3D] transition group cursor-pointer p-1"
+          aria-label="Voltar"
+        >
+          <ArrowLeft size={24} strokeWidth={1.5} className="group-hover:-translate-x-1 transition-transform" />
+        </button>
+      </div>
+
       <div className="container mx-auto px-6 max-w-4xl">
         {featuredImage && (
           <div className="relative w-full h-[400px] mb-12 rounded-2xl overflow-hidden">
@@ -99,7 +108,7 @@ export default function NoticiaIndividual() {
               src={featuredImage}
               alt={post.title.rendered}
               fill
-              unoptimized // <--- ADICIONADO AQUI PARA PRODUÇÃO
+              unoptimized
               className="object-cover"
               priority
             />
