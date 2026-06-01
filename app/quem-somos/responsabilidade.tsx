@@ -55,9 +55,7 @@ export default function ResponsabilidadeSocial() {
               {/* Tarja Azul na Base */}
               <div className="relative z-20 bg-[#001D3D]/95 p-6 mx-4 mb-4 min-h-[140px] flex items-center justify-center">
                 <p className="text-sm leading-relaxed text-white text-center">
-                  O Ativa+Idade é um trabalho realizado pelos advogados e estagiários do nosso 
-                  escritório em instituições de longa permanência para idosos (ILPIs), localizadas 
-                  nas cidades de São Paulo e Embu-Guaçu e na região da Baixada Santista.
+                  O Ativa+Idade é um trabalho realizado pelos advogados e estagiários do nosso escritório em instituições de longa permanência para idosos (ILPIs), localizadas na região da Baixada Santista e nas cidades de São Paulo e Embu-Guaçu.
                 </p>
               </div>
             </div>

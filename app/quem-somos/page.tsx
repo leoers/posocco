@@ -72,8 +72,7 @@ export default function QuemSomosPage() {
           </div>
 
           <p className="text-lg md:text-xl leading-relaxed font-light text-[#ffffff] max-w-4xl">
-            O Posocco & Advogados Associados é um escritório de advocacia full service. Foi fundado em 1999, por <span className="font-semibold text-[#fff]">Fabricio Sicchierolli Posocco</span>, 
-            advogado, professor universitário e de cursos preparatórios para carreiras jurídicas e presidente da Comissão de Direito Civil e Processo Civil da Ordem dos Advogados do Brasil Subseção São Vicente/SP.
+            O Posocco & Advogados Associados é um escritório de advocacia full service, fundado em 1999. Ele leva o sobrenome do seu fundador,  <span className="font-semibold text-[#fff]">Fabricio Sicchierolli Posocco</span>, profissional respeitado nacionalmente no meio jurídico e acadêmico. Fabricio Sicchierolli Posocco é professor universitário e de cursos preparatórios para carreiras jurídicas e presidente da Comissão de Direito Civil e Processo Civil da Ordem dos Advogados do Brasil Subseção São Vicente/SP, desde 2019.
           </p>
         </motion.div>
       </section>
@@ -105,7 +104,7 @@ export default function QuemSomosPage() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInVariant}
-          className="container mx-auto px-6 text-center max-w-5xl"
+          className="container mx-auto px-6 text-center max-w-6xl"
         >
           <div className="flex justify-center mb-6">
             <HiOutlineShieldCheck className="text-[#001D3D] text-7xl opacity-90" />
@@ -114,11 +113,7 @@ export default function QuemSomosPage() {
             Protegemos todos os seus direitos
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
-            Contamos com uma equipe de advogados com notável saber jurídico e ampla experiência 
-            profissional na área acadêmica e na prática jurídica. Esse conhecimento profundo é 
-            aplicado para defender os seus direitos nos Tribunais de Justiças Estaduais (TJs), 
-            nos Tribunais Regionais Federais (TRFs), nas Justiças Especializadas (Trabalho, 
-            Eleitoral e Militar), nos Tribunais Superiores (STJ, TST, TSE, STM) e no Supremo Tribunal Federal (STF).
+            Contamos com uma equipe de advogados com notável saber jurídico e ampla experiência profissional na área acadêmica e na prática jurídica. Esse conhecimento profundo é aplicado para defender os seus direitos nos Tribunais de Justiças Estaduais (TJs), nos Tribunais Regionais Federais (TRFs), nas Justiças Especializadas (Trabalho, Eleitoral e Militar), nos Tribunais Superiores (STJ, TST, TSE, STM) e no Supremo Tribunal Federal (STF).
           </p>
         </motion.div>
       </div>
