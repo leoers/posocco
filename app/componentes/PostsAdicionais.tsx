@@ -8,6 +8,7 @@ interface Post {
   id: number;
   title: { rendered: string };
   link: string;
+  date: string;
   slug: string; // Adicionado para manter consistência
   _embedded?: {
     "wp:featuredmedia"?: Array<{ source_url: string }>;
@@ -97,6 +98,9 @@ export default function PostsAdicionais() {
                             className="text-[#333] font-bold text-xl lg:text-2xl leading-tight line-clamp-3 group-hover:text-[#001D3D] transition-colors"
                             dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                           />
+                          <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest pt-2">
+                            {new Date(post.date).toLocaleDateString('pt-BR')}
+                          </p>
                         </div>
                       </a>
                     </div>

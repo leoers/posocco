@@ -116,9 +116,11 @@ export default function NoticiaIndividual() {
         )}
 
         <h1 className="text-3xl md:text-5xl font-bold text-center mb-12" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-
+        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest pt-2">
+          {new Date(post.date).toLocaleDateString('pt-BR')}
+        </p>
         <article
-          className="prose prose-lg max-w-none"
+          className="mt-12 prose prose-lg max-w-none"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />
         

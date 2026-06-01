@@ -58,10 +58,10 @@ export default async function NoticiasBlog() {
                     dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                   />
                   
-                  <div 
+                  {/* <div 
                     className="text-gray-500 text-sm line-clamp-3 leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                  />
+                  /> */}
                   
                   <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest pt-2">
                     {new Date(post.date).toLocaleDateString('pt-BR')}

@@ -60,11 +60,11 @@ export default function FooterInfo() {
           className="text-center mb-24"
         >
           <h2 className="text-[#333] text-4xl md:text-5xl font-light mb-4">Fale conosco</h2>
-          <p className="text-gray-600 text-xl md:text-2xl mb-16">Atendemos clientes em todo o país</p>
+          <p className="text-gray-600 md:text-2xl mb-16">Atendemos clientes em todo o país</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left">
+          <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
             <div className="space-y-6">
-              <h3 className="text-[#001D3D] font-bold text-xl tracking-wide">Central de atendimento via WhatsApp</h3>
+              <h3 className="text-[#001D3D] font-bold tracking-wide">Central de atendimento via WhatsApp</h3>
               <div className="text-gray-600 space-y-0">
                 <p>+55 13 99200-9191</p>
                 <p>+55 11 99217-5115</p>
@@ -72,14 +72,14 @@ export default function FooterInfo() {
                 <p>+55 11 97827-4041</p> */}
               </div>
               <div className="pt-4">
-                <h3 className="text-[#001D3D] font-bold text-xl tracking-wide mb-2">E-mail</h3>
+                <h3 className="text-[#001D3D] font-bold tracking-wide mb-2">E-mail</h3>
                 <p className="text-gray-600 text-lg">atendimento@posocco.com.br</p>
               </div>
             </div>
 
             <div className="space-y-8">
               <div>
-                <h3 className="text-[#001D3D] font-bold text-xl mb-4 tracking-wide">
+                <h3 className="text-[#001D3D] font-bold mb-4 tracking-wide">
                   Horário de funcionamento
                 </h3>
                 <div className="mb-6">
@@ -94,7 +94,7 @@ export default function FooterInfo() {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-[#001D3D] font-bold text-xl mb-4 tracking-wide">
+              <h3 className="text-[#001D3D] font-bold mb-4 tracking-wide">
                 Atendimento à imprensa
               </h3>
               <div className="text-gray-600 space-y-1">
@@ -117,11 +117,11 @@ export default function FooterInfo() {
         >
           <h2 className="text-[#333] text-4xl md:text-5xl font-light mb-16 tracking-tight">Onde estamos</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-left">
+          <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
             {enderecos.map((item) => (
               <div key={item.cidade} className="flex flex-col">
-                <h3 className="text-[#001D3D] font-extrabold text-2xl mb-4">{item.cidade}</h3>
-                <div className="text-gray-600 text-lg leading-relaxed mb-6">
+                <h3 className="text-[#001D3D] font-extrabold text-xl mb-4">{item.cidade}</h3>
+                <div className="text-gray-600 leading-relaxed mb-6">
                   <p>{item.logradouro}</p>
                   <p>{item.edificio}</p>
                   <p>{item.bairro}</p>
