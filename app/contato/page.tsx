@@ -29,7 +29,8 @@ export default function Contato() {
     formData.append("your-tel", form.telefone); 
 
     try {
-      const response = await fetch("https://posocco.com.br/wp-json/contact-form-7/v1/contact-forms/424/feedback", {
+      // Endpoint atualizado para o novo servidor
+      const response = await fetch("https://posoccowp.xyz/wp/index.php?rest_route=/contact-form-7/v1/contact-forms/424/feedback", {
         method: "POST",
         body: formData,
       });
@@ -52,14 +53,13 @@ export default function Contato() {
   return (
     <main className="bg-[#001D3D] min-h-screen flex items-center justify-center pt-24 pb-12 px-6 relative">
       
-      {/* BOTÃO VOLTAR (Apenas a Seta Pura) */}
+      {/* BOTÃO VOLTAR */}
       <div className="absolute top-24 left-6 md:left-12 z-40">
         <button
           onClick={() => router.back()}
           className="text-white/60 hover:text-white transition group cursor-pointer p-1"
           aria-label="Voltar para a página anterior"
         >
-          {/* Aumentei levemente o size para 24px para manter uma boa área de toque no mobile */}
           <ArrowLeft size={24} strokeWidth={1.5} className="group-hover:-translate-x-1 transition-transform" />
         </button>
       </div>

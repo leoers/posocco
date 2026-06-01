@@ -102,7 +102,7 @@ export default function ResponsabilidadeSocial() {
 
               {/* Tarja Azul na Base */}
               <div className="relative z-20 bg-[#001D3D]/95 p-6 mx-4 mb-4 min-h-[140px] flex items-center justify-center text-center">
-                <p className="text-sm leading-relaxed text-white">
+                <p className="text-sm leading-relaxed text-white" style={{ textWrap: 'balance' }}>
                   Mantemos um compromisso permanente com a promoção da cidadania e do acesso à justiça.
                 </p>
               </div>

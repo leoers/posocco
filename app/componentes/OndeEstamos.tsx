@@ -71,8 +71,8 @@ export default function FooterInfo() {
                 {/* <p>+55 11 97827-7147</p>
                 <p>+55 11 97827-4041</p> */}
               </div>
-              <div className="pt-4">
-                <h3 className="text-[#001D3D] font-bold tracking-wide mb-2">E-mail</h3>
+              <div>
+                <h3 className="text-[#001D3D] font-bold tracking-wide">E-mail</h3>
                 <p className="text-gray-600 text-lg">atendimento@posocco.com.br</p>
               </div>
             </div>

@@ -72,7 +72,7 @@ export default function QuemSomosPage() {
           </div>
 
           <p className="text-lg md:text-xl leading-relaxed font-light text-[#ffffff] max-w-4xl">
-            O Posocco & Advogados Associados é um escritório de advocacia full service, fundado em 1999. Ele leva o sobrenome do seu fundador,  <span className="font-semibold text-[#fff]">Fabricio Sicchierolli Posocco</span>, profissional respeitado nacionalmente no meio jurídico e acadêmico. Fabricio Sicchierolli Posocco é professor universitário e de cursos preparatórios para carreiras jurídicas e presidente da Comissão de Direito Civil e Processo Civil da Ordem dos Advogados do Brasil Subseção São Vicente/SP, desde 2019.
+            O Posocco & Advogados Associados é um escritório de advocacia full service, fundado em 1999. Ele leva o sobrenome do seu fundador, <span className="font-semibold text-[#fff]">Fabricio Sicchierolli Posocco</span>, profissional respeitado nacionalmente no meio jurídico e acadêmico. Fabricio Sicchierolli Posocco é professor universitário e de cursos preparatórios para carreiras jurídicas e presidente da Comissão de Direito Civil e Processo Civil da Ordem dos Advogados do Brasil Subseção São&nbsp;Vicente/SP, desde 2019.
           </p>
         </motion.div>
       </section>
