@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { HiOutlineShieldCheck } from "react-icons/hi";
+import { HiOutlineShieldCheck, HiOutlineAcademicCap } from "react-icons/hi";
 
 import Responsabilidade from "@/app/quem-somos/responsabilidade";
 import SolucoesPorPerfil from "@/app/quem-somos/SolucoesPorPerfil";
@@ -106,7 +106,7 @@ export default function QuemSomosPage() {
       </section>
 
       {/* BLOCO 1: SÃO MAIS DE 25 ANOS */}
-      <div className="bg-white pt-10 md:pt-24">
+      <div className="bg-white pt-10 md:py-24">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -115,30 +115,13 @@ export default function QuemSomosPage() {
           className="container mx-auto px-6 text-center max-w-4xl"
         >
           <h2 className="text-[#001D3D] text-3xl md:text-4xl font-bold mb-6">
-            São mais de 25 Anos vira Nossa missão:
+            Nossa missão:
           </h2>
           <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8">
             Garantir a proteção absoluta dos direitos de nossos clientes por meio de uma advocacia de excelência. Unimos a força de mais de 25 anos de atuação na linha de frente à inovação estratégica, combinando profundo rigor técnico e combatividade inegociável nos Tribunais para entregar resultados claros, rápidos e implacáveis.
           </p>
-          <div className="flex justify-center">
-            <h3 className="text-[#001D3D] text-xl md:text-2xl font-bold max-w-max">
-              Protegemos todos os seus direitos vira Protegemos o seu direito, não importa onde você esteja:
-            </h3>
-          </div>
         </motion.div>
       </div>
-
-      <Responsabilidade />
-      
-      <div className="flex justify-center w-full">
-        <Link 
-          href="https://wa.me/5511992175115" target="_blank"
-          className="bg-[#001D3D] text-white px-12 py-3 rounded-full font-medium hover:bg-[#003566] transition-all duration-300 mb-10 shadow-lg text-lg"
-        >
-          Falar com um especialista
-        </Link>
-      </div>
-
       {/* BLOCO 2: PROTEGEMOS TODOS OS SEUS DIREITOS (CINZA) */}
       <div className="bg-[#f2f2f2] py-24">
         <motion.div 
@@ -157,17 +140,39 @@ export default function QuemSomosPage() {
           <p className="text-gray-600 text-lg leading-relaxed">
             Com atuação em todo o território nacional, nossa equipe combina notável saber jurídico e ampla experiência prática para defender os seus interesses do início ao fim do processo. Seja no fórum da sua cidade, nos Tribunais localizados na capital do seu Estado ou nas mais altas instâncias em Brasília (STF, STJ, TST, TSE, STM), garantimos a mesma combatividade e excelência técnica. Onde houver um direito a ser defendido — seja na Justiça Comum, Federal, Trabalhista, Eleitoral ou Militar — o Posocco & Advogados Associados estará lá, assegurando que sua voz seja respeitada com o mesmo peso, rigor técnico e estratégia implacável em qualquer lugar do Brasil. 
           </p>
-          <h2 className="text-[#727272] text-3xl md:text-4xl font-medium mb-6 pt-20">
+        </motion.div>
+      </div>
+      
+      <Responsabilidade />
+      <div className="bg-[#f2f2f2] py-24">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInVariant}
+          className="container mx-auto px-6 text-center max-w-6xl"
+        >
+          <div className="flex justify-center mb-6">
+            <HiOutlineAcademicCap className="text-[#001D3D] text-7xl opacity-90" />
+          </div>
+          <h2 className="text-[#001D3D] text-3xl md:text-4xl font-bold mb-6">
             Meu Primeiro Cliente: da Teoria à Prática
           </h2>
-          <p 
-            className="text-gray-600 leading-relaxed" 
-            style={{ fontSize: '14px' }}
-          >
+          <p className="text-gray-600 text-lg leading-relaxed">
             Acreditamos no desenvolvimento da advocacia e, por isso, criamos o projeto Meu Primeiro Cliente. Uma iniciativa de responsabilidade social voltada para estudantes do último ano e advogados recém-formados. Mais do que um programa de aprendizado, é uma verdadeira imersão na linha de frente do Direito. Com o acompanhamento lado a lado dos nossos especialistas, o participante vivencia a rotina de um escritório de alto nível: do atendimento estratégico ao cliente e elaboração de peças complexas, até o acompanhamento tático de ações e audiências. Aplicamos nossa experiência de mais de duas décadas para forjar profissionais preparados, éticos e combativos, abrindo caminhos para o mercado e futuras parcerias de sucesso. 
           </p>
         </motion.div>
       </div>
+      <div className="flex justify-center w-full pt-20">
+        <Link 
+          href="https://wa.me/5511992175115" target="_blank"
+          className="bg-[#001D3D] text-white px-12 py-3 rounded-full font-medium hover:bg-[#003566] transition-all duration-300 mb-10 shadow-lg text-lg"
+        >
+          Falar com um especialista
+        </Link>
+      </div>
+
+      
       <SolucoesPorPerfil />
     </main>
   );
