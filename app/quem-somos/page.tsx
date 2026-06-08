@@ -115,7 +115,7 @@ export default function QuemSomosPage() {
           className="container mx-auto px-6 text-center max-w-4xl"
         >
           <h2 className="text-[#001D3D] text-3xl md:text-4xl font-bold mb-6">
-            Nossa missão:
+            Nossa missão
           </h2>
           <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8">
             Garantir a proteção absoluta dos direitos de nossos clientes por meio de uma advocacia de excelência. Unimos a força de mais de 25 anos de atuação na linha de frente à inovação estratégica, combinando profundo rigor técnico e combatividade inegociável nos Tribunais para entregar resultados claros, rápidos e implacáveis.
