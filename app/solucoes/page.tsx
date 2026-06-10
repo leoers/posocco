@@ -89,9 +89,22 @@ export default function TemplateSolucoes({ titulo, imagemFundo, dados = [] }: Te
 
           <div className="overflow-hidden">
             <motion.div
-              className="flex gap-6 items-center"
+              className="flex gap-6 items-center cursor-grab active:cursor-grabbing"
               animate={{ x: -(index * cardWidth) }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              drag="x"
+              dragConstraints={{
+                left: -(maxIndex * cardWidth),
+                right: 0,
+              }}
+              onDragEnd={(event, info) => {
+                const offset = info.offset.x;
+                if (offset < -50 && index < maxIndex) {
+                  setIndex(index + 1);
+                } else if (offset > 50 && index > 0) {
+                  setIndex(index - 1);
+                }
+              }}
             >
               {dados?.map((item, idx) => (
                 <a key={item.id || idx} href={`#${item.id}`} className="relative w-[280px] h-[350px] flex-shrink-0 group overflow-hidden rounded-sm shadow-2xl bg-slate-800">
@@ -135,7 +148,6 @@ export default function TemplateSolucoes({ titulo, imagemFundo, dados = [] }: Te
                 </div>
               </div>
               
-              {/* Ajustado: Transformado em tag <a> apontando para o link do WhatsApp solicitado */}
               <a 
                 href="https://wa.me/5511992175115"
                 target="_blank"
