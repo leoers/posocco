@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 interface BlocoConteudo {
@@ -69,7 +69,7 @@ export default function TemplateSolucoes({ titulo, imagemFundo, dados = [] }: Te
 
 function DesktopCarousel({ dados }: { dados: BlocoConteudo[] }) {
   const [index, setIndex] = useState(0);
-  const cardWidth = 328; // 304 + gap 24
+  const cardWidth = 328;
   const maxIndex = Math.max(0, dados.length - 4);
 
   return (
@@ -88,46 +88,54 @@ function DesktopCarousel({ dados }: { dados: BlocoConteudo[] }) {
           ))}
         </motion.div>
       </div>
-
-      <div className="flex justify-center gap-2 mt-8">
-        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-          <button key={i} onClick={() => setIndex(i)} className={`h-2.5 rounded-full transition-all ${index === i ? "bg-[#001D3D] w-6" : "bg-gray-300 w-2.5"}`} />
-        ))}
-      </div>
     </div>
   );
 }
 
 function MobileCarousel({ dados }: { dados: BlocoConteudo[] }) {
   const [index, setIndex] = useState(0);
-  const maxIndex = dados.length - 1;
+  const x = useMotionValue(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="relative">
-      <div className="overflow-hidden w-full">
+      <div className="overflow-hidden w-full" ref={containerRef}>
         <motion.div 
-          className="flex" 
+          className="flex"
+          style={{ x }}
           drag="x"
-          dragConstraints={{ left: -(maxIndex * 100), right: 0 }}
+          dragConstraints={{ left: -((dados.length - 1) * 100), right: 0 }}
+          dragElastic={0.1}
           onDragEnd={(_, info) => {
-            if (info.offset.x < -50 && index < maxIndex) setIndex(index + 1);
-            else if (info.offset.x > 50 && index > 0) setIndex(index - 1);
+            const containerWidth = containerRef.current?.offsetWidth || 0;
+            const threshold = containerWidth / 4; // Sensibilidade de arraste
+            
+            if (info.offset.x < -threshold && index < dados.length - 1) {
+              setIndex(index + 1);
+            } else if (info.offset.x > threshold && index > 0) {
+              setIndex(index - 1);
+            } else {
+              // Retorna ao centro se não atingir o threshold
+              x.set(-(index * containerWidth));
+            }
           }}
-          animate={{ x: `-${index * 100}%` }} 
+          animate={{ x: -(index * 100) + '%' }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
           {dados.map((item, idx) => (
-            <a key={idx} href={`#${item.id}`} className="w-full flex-shrink-0 h-[350px] relative rounded-sm overflow-hidden bg-slate-800">
-              <Image src={item.imagemCard} alt={item.categoria} fill className="object-cover opacity-80" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#001D3D] via-[#001D3D]/40 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-white"><h3 className="text-xl font-bold uppercase">{item.categoria}</h3></div>
-            </a>
+            <div key={idx} className="w-full flex-shrink-0 px-2">
+              <a href={`#${item.id}`} className="block w-full h-[350px] relative rounded-sm overflow-hidden shadow-2xl bg-slate-800">
+                <Image src={item.imagemCard} alt={item.categoria} fill className="object-cover opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001D3D] via-[#001D3D]/40 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 text-white"><h3 className="text-xl font-bold uppercase">{item.categoria}</h3></div>
+              </a>
+            </div>
           ))}
         </motion.div>
       </div>
       <div className="flex justify-center gap-2 mt-8">
         {dados.map((_, i) => (
-          <button key={i} onClick={() => setIndex(i)} className={`h-2.5 rounded-full transition-all ${index === i ? "bg-[#001D3D] w-6" : "bg-gray-300 w-2.5"}`} />
+          <button key={i} onClick={() => setIndex(i)} className={`h-2.5 rounded-full transition-all duration-300 ${index === i ? "bg-[#001D3D] w-6" : "bg-gray-300 w-2.5"}`} />
         ))}
       </div>
     </div>
