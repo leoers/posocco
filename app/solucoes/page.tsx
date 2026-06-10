@@ -1,8 +1,8 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence, useMotionValue } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 interface BlocoConteudo {
@@ -69,7 +69,7 @@ export default function TemplateSolucoes({ titulo, imagemFundo, dados = [] }: Te
 
 function DesktopCarousel({ dados }: { dados: BlocoConteudo[] }) {
   const [index, setIndex] = useState(0);
-  const cardWidth = 328;
+  const cardWidth = 328; 
   const maxIndex = Math.max(0, dados.length - 4);
 
   return (
@@ -88,39 +88,37 @@ function DesktopCarousel({ dados }: { dados: BlocoConteudo[] }) {
           ))}
         </motion.div>
       </div>
+
+      <div className="flex justify-center gap-2 mt-8">
+        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+          <button key={i} onClick={() => setIndex(i)} className={`h-2.5 rounded-full transition-all ${index === i ? "bg-[#001D3D] w-6" : "bg-gray-300 w-2.5"}`} />
+        ))}
+      </div>
     </div>
   );
 }
 
 function MobileCarousel({ dados }: { dados: BlocoConteudo[] }) {
   const [index, setIndex] = useState(0);
-  const x = useMotionValue(0);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="relative">
-      <div className="overflow-hidden w-full" ref={containerRef}>
+      <div className="overflow-hidden w-full">
         <motion.div 
-          className="flex"
-          style={{ x }}
+          className="flex w-full" 
           drag="x"
           dragConstraints={{ left: -((dados.length - 1) * 100), right: 0 }}
-          dragElastic={0.1}
+          dragElastic={0.2}
+          animate={{ x: `-${index * 100}%` }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
           onDragEnd={(_, info) => {
-            const containerWidth = containerRef.current?.offsetWidth || 0;
-            const threshold = containerWidth / 4; // Sensibilidade de arraste
-            
+            const threshold = 50;
             if (info.offset.x < -threshold && index < dados.length - 1) {
               setIndex(index + 1);
             } else if (info.offset.x > threshold && index > 0) {
               setIndex(index - 1);
-            } else {
-              // Retorna ao centro se não atingir o threshold
-              x.set(-(index * containerWidth));
             }
           }}
-          animate={{ x: -(index * 100) + '%' }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
           {dados.map((item, idx) => (
             <div key={idx} className="w-full flex-shrink-0 px-2">
