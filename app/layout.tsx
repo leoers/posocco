@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/app/componentes/navbar";
 import OndeStamos from "@/app/componentes/OndeEstamos";
 import Footer from "@/app/componentes/footer";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 // Configuração da fonte Montserrat
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -29,6 +29,7 @@ export default function RootLayout({
         {children}
         <OndeStamos />
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
