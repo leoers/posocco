@@ -11,13 +11,13 @@ import Coverage from './components/Coverage';
 import Footer from './components/Footer';
 
 export const metadata: Metadata = {
-  title: "Advogado Especialista em Direitos dos Autistas | Posocco",
-  description: "Assessoria jurídica especializada na defesa da pessoa com Transtorno do Espectro Autista. Garanta tratamento pelo plano de saúde, BPC/LOAS e inclusão escolar.",
-  keywords: "advogado especialista autismo, direitos do autista, negativa plano de saúde autismo, bpc loas autismo, acompanhante escolar tea, liminar plano de saúde autismo, advogado tea, isenção imposto de renda autismo",
+  title: "Aposentado, pensionista, servidor público e militar | Posocco",
+  description: "Recupere valores de descontos indevidos, fraudes, empréstimos não solicitados e venda casada. Assessoria jurídica para problemas com bancos e INSS.",
+  keywords: "advogado contra banco, descontos indevidos inss, fraude empréstimo consignado, venda casada banco, ação contra banco, restituição em dobro, advogado direito bancário, cobrança indevida contracheque",
   openGraph: {
-    title: "Advogado Especialista em Direitos do Autista (TEA)",
-    description: "Garanta o acesso a tratamentos, benefícios assistenciais (BPC/LOAS) e proteção dos direitos educacionais e fiscais da pessoa com TEA.",
-    url: "https://direitosautista.posocco.com.br",
+    title: "Aposentado, pensionista, servidor público e militar | Posocco",
+    description: "Servidor público, aposentado e pensionista do INSS identificamos e anulamos cobranças irregulares, empréstimos não autorizados e seguros embutidos. Proteja sua renda mensal.",
+    url: "https://direitobancario.posocco.com.br",
     siteName: "Posocco & Advogados Associados",
     locale: "pt_BR",
     type: "website",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/assets/fav_posocco.png',
+    icon: '/aposentado-pensionista-servidor-militar/fav_posocco.png',
   },
 };
 

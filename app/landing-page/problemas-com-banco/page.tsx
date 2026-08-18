@@ -11,13 +11,13 @@ import Coverage from './components/Coverage';
 import Footer from './components/Footer';
 
 export const metadata: Metadata = {
-  title: "Advogado Especialista em Direitos dos Autistas | Posocco",
-  description: "Assessoria jurídica especializada na defesa da pessoa com Transtorno do Espectro Autista. Garanta tratamento pelo plano de saúde, BPC/LOAS e inclusão escolar.",
-  keywords: "advogado especialista autismo, direitos do autista, negativa plano de saúde autismo, bpc loas autismo, acompanhante escolar tea, liminar plano de saúde autismo, advogado tea, isenção imposto de renda autismo",
+  title: "Advogado Especialista em Problemas com Banco | Posocco",
+  description: "Vítima de abusos, fraudes, golpes bancários ou taxas abusivas? Fale com nossos advogados especialistas em Direito Bancário e proteja seu patrimônio.",
+  keywords: "advogado especialista direito bancário, golpes bancários, fraudes bancárias, juros abusivos, cobrança indevida banco, advogado contra banco, indenização banco, descontos indevidos inss, taxas abusivas",
   openGraph: {
-    title: "Advogado Especialista em Direitos do Autista (TEA)",
-    description: "Garanta o acesso a tratamentos, benefícios assistenciais (BPC/LOAS) e proteção dos direitos educacionais e fiscais da pessoa com TEA.",
-    url: "https://direitosautista.posocco.com.br",
+    title: "Advogado Especialista em Problemas com Banco",
+    description: "Você foi vítima de abusos ou golpes bancários? É possível buscar devolução e indenização. Conheça seus direitos.",
+    url: "https://bancario.posocco.com.br",
     siteName: "Posocco & Advogados Associados",
     locale: "pt_BR",
     type: "website",

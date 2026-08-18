@@ -11,13 +11,13 @@ import Coverage from './components/Coverage';
 import Footer from './components/Footer';
 
 export const metadata: Metadata = {
-  title: "Advogado Especialista em Direitos dos Autistas | Posocco",
-  description: "Assessoria jurídica especializada na defesa da pessoa com Transtorno do Espectro Autista. Garanta tratamento pelo plano de saúde, BPC/LOAS e inclusão escolar.",
-  keywords: "advogado especialista autismo, direitos do autista, negativa plano de saúde autismo, bpc loas autismo, acompanhante escolar tea, liminar plano de saúde autismo, advogado tea, isenção imposto de renda autismo",
+  title: "Advogados Especialistas em Plano de Saúde | Posocco",
+  description: "Seu plano negou cobertura, assistência domiciliar (home care), cancelou o contrato ou recusou medicamentos de alto custo? Obtenha a liminar de urgência que você precisa. Atendimento em todo o Brasil.",
+  keywords: "advogado plano de saúde, negativa de cobertura, liminar plano de saúde, reajuste abusivo plano de saúde, cancelamento plano de saúde, advogado erro médico, medicamento alto custo liminar, liminar contra plano de saúde, negativa de cirurgia plano de saúde, reajuste abusivo ANS",
   openGraph: {
-    title: "Advogado Especialista em Direitos do Autista (TEA)",
-    description: "Garanta o acesso a tratamentos, benefícios assistenciais (BPC/LOAS) e proteção dos direitos educacionais e fiscais da pessoa com TEA.",
-    url: "https://direitosautista.posocco.com.br",
+    title: "Advogados Especialistas em Plano de Saúde",
+    description: "Seu plano de saúde negou cobertura ou cancelou seu contrato? Fale com nossa equipe especializada e garanta seu direito ao tratamento.",
+    url: "https://planodesaude.posocco.com.br",
     siteName: "Posocco & Advogados Associados",
     locale: "pt_BR",
     type: "website",

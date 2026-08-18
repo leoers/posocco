@@ -11,13 +11,13 @@ import Coverage from './components/Coverage';
 import Footer from './components/Footer';
 
 export const metadata: Metadata = {
-  title: "Advogado Especialista em Direitos dos Autistas | Posocco",
-  description: "Assessoria jurídica especializada na defesa da pessoa com Transtorno do Espectro Autista. Garanta tratamento pelo plano de saúde, BPC/LOAS e inclusão escolar.",
-  keywords: "advogado especialista autismo, direitos do autista, negativa plano de saúde autismo, bpc loas autismo, acompanhante escolar tea, liminar plano de saúde autismo, advogado tea, isenção imposto de renda autismo",
+  title: "Advogado Especialista em Direitos da Pessoa com Câncer | Posocco",
+  description: "Assessoria jurídica especializada para pacientes oncológicos. Garanta tratamento pelo plano de saúde, isenções fiscais, BPC/LOAS e proteção no trabalho.",
+  keywords: "advogado especialista câncer, direitos do paciente com câncer, negativa plano de saúde oncologia, isenção imposto de renda câncer, bpc loas câncer, liminar tratamento oncológico, advogado direito à saúde câncer",
   openGraph: {
-    title: "Advogado Especialista em Direitos do Autista (TEA)",
-    description: "Garanta o acesso a tratamentos, benefícios assistenciais (BPC/LOAS) e proteção dos direitos educacionais e fiscais da pessoa com TEA.",
-    url: "https://direitosautista.posocco.com.br",
+    title: "Advogados Especialistas em Direitos da Pessoa com Câncer",
+    description: "Amparo legal para buscar o seu direito ao tratamento oncológico, benefícios previdenciários e isenções fiscais.",
+    url: "https://direitoscancer.posocco.com.br",
     siteName: "Posocco & Advogados Associados",
     locale: "pt_BR",
     type: "website",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/assets/fav_posocco.png',
+    icon: '/direitos-cancer/fav_posocco.png',
   },
 };
 

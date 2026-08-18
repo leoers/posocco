@@ -1,0 +1,285 @@
+:root {
+  --bg-primary: #0A0A0F;
+  --bg-secondary: #0F1623;
+  --accent-cyan: #00C8FF;
+  --accent-cyan-hover: #33D6FF;
+  --accent-gold: #D4AF37;
+  --text-primary: #FFFFFF;
+  --text-muted: #B0BEC5;
+  --border: rgba(0, 200, 255, 0.15);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  
+  --font-h: var(--font-montserrat), sans-serif;
+  --font-p: var(--font-inter), sans-serif;
+  
+  --max-w: 1200px;
+  --pad-x: 24px;
+  --pad-y: 72px;
+  --radius-card: 16px;
+  --radius-btn: 8px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --pad-x: 80px;
+    --pad-y: 120px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--font-p);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+  font-family: var(--font-h);
+}
+
+.h1 {
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.h2 {
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+.h3 {
+  font-family: var(--font-p);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+@media (min-width: 1024px) {
+  .h1 { font-size: 60px; }
+  .h2 { font-size: 40px; }
+  .h3 { font-size: 20px; }
+}
+
+.text-muted { color: var(--text-muted); }
+.text-cyan { color: var(--accent-cyan); }
+.text-gold { color: var(--accent-gold); }
+.highlight-inline { color: var(--accent-cyan); font-weight: 700; }
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-p);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.section {
+  padding: var(--pad-y) 0;
+  position: relative;
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  opacity: 0.5;
+  width: 100%;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-cyan);
+  color: #000000;
+  font-family: var(--font-p);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 18px 40px;
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--accent-cyan-hover);
+  box-shadow: 0 0 30px rgba(0, 200, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-large {
+  padding: 22px 56px;
+  font-size: 18px;
+  width: 100%;
+  max-width: 500px;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(0, 200, 255, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(0, 200, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 200, 255, 0); }
+}
+
+.btn-pulse {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Old animations removed in favor of AOS */
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #1e3a8a, #3b82f6, #1e3a8a);
+  background-size: 200% auto;
+  color: #FFFFFF;
+  font-family: var(--font-p);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 12px 12px 12px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 0 10px 30px rgba(30, 58, 138, 0.4);
+  gap: 24px;
+  white-space: nowrap;
+}
+.btn-pill:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+.btn-wa-icon {
+  width: 32px;
+  height: 32px;
+  background-color: #FFFFFF;
+  color: #1e3a8a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.btn-pill:hover .btn-wa-icon {
+  transform: scale(1.05);
+}
+.btn-wa-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 900px) {
+  .desktop-only-br {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .btn-pill {
+    font-size: 11px;
+    padding: 10px 10px 10px 16px;
+    gap: 12px;
+  }
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #25D366;
+  color: #FFFFFF;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  animation: pulse-whatsapp 2s infinite;
+}
+
+.floating-whatsapp svg {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 600px) {
+  .floating-whatsapp {
+    bottom: 16px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+  }
+  .floating-whatsapp svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@keyframes pulse-whatsapp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}

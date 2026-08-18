@@ -11,13 +11,13 @@ import Coverage from './components/Coverage';
 import Footer from './components/Footer';
 
 export const metadata: Metadata = {
-  title: "Advogado Especialista em Direitos dos Autistas | Posocco",
-  description: "Assessoria jurídica especializada na defesa da pessoa com Transtorno do Espectro Autista. Garanta tratamento pelo plano de saúde, BPC/LOAS e inclusão escolar.",
-  keywords: "advogado especialista autismo, direitos do autista, negativa plano de saúde autismo, bpc loas autismo, acompanhante escolar tea, liminar plano de saúde autismo, advogado tea, isenção imposto de renda autismo",
+  title: "Advogado Especialista em Direitos do Passageiro Aéreo | Posocco",
+  description: "Problemas com voo cancelado, atrasos, overbooking ou extravio de bagagem? Avalie seu caso com um advogado especialista e busque sua indenização. Atendimento em todo o Brasil.",
+  keywords: "advogado voo cancelado, advogado atraso de voo, indenização voo cancelado, danos morais companhia aérea, extravio de bagagem indenização, advogado especialista direito aéreo, overbooking, direitos do passageiro aéreo, processo contra companhia aérea",
   openGraph: {
-    title: "Advogado Especialista em Direitos do Autista (TEA)",
-    description: "Garanta o acesso a tratamentos, benefícios assistenciais (BPC/LOAS) e proteção dos direitos educacionais e fiscais da pessoa com TEA.",
-    url: "https://direitosautista.posocco.com.br",
+    title: "Advogado Especialista em Direitos do Passageiro Aéreo",
+    description: "Problemas com cancelamento de voo, atraso ou overbooking? Fale com nossa equipe especializada e defenda seus direitos.",
+    url: "https://passageiroaereo.posocco.com.br",
     siteName: "Posocco & Advogados Associados",
     locale: "pt_BR",
     type: "website",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/assets/fav_posocco.png',
+    icon: '/passageiro-aereo/fav_posocco.png',
   },
 };
 
