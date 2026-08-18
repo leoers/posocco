@@ -1,8 +1,9 @@
 "use client";
 import { motion, Variants } from "framer-motion";
-import { FaInstagram, FaFacebookF, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
 import { IoLogoTiktok } from "react-icons/io5";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const fadeInVariant: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -14,10 +15,28 @@ const fadeInVariant: Variants = {
 };
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Agora incluindo o prefixo /landing-page/ em todos os caminhos
+  const lpsSemFooter = [
+    "/landing-page/direitos-autista",
+    "/landing-page/acidente-de-trabalho",
+    "/landing-page/direitos-cancer",
+    "/landing-page/aposentado-pensionista-servidor-militar",
+    "/landing-page/isencao-imposto-renda",
+    "/landing-page/passageiro-aereo",
+    "/landing-page/plano-de-saude",
+    "/landing-page/problemas-com-banco"
+  ];
+
+  if (lpsSemFooter.includes(pathname)) {
+    return null;
+  }
+
   return (
     <footer className="w-full bg-[#f8f9fa] pt-10 pb-16">
+      {/* ... restante do código permanece igual ... */}
       <div className="container mx-auto px-6 md:px-12 text-center">
-        
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -39,7 +58,6 @@ export default function Footer() {
             />
           </div>
 
-          {/* ÍCONES COM REACT-ICONS */}
           <div className="flex space-x-4">
             {[
               { icon: <FaInstagram size={22} />, link: "https://www.instagram.com/posoccoadvogadosassociados" },

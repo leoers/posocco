@@ -4,12 +4,30 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Handshake, MessageSquare, Newspaper, Search } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation"; // 1. Importou o usePathname
 
 export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
+  const pathname = usePathname(); // 2. Pega a rota atual
+
+  // 3. Lista de todas as pastas de LPs onde o Navbar NÃO deve aparecer
+  const lpsSemNavbar = [
+    "/landing-page/direitos-autista",
+    "/landing-page/acidente-de-trabalho",
+    "/landing-page/direitos-cancer",
+    "/landing-page/aposentado-pensionista-servidor-militar",
+    "/landing-page/isencao-imposto-renda",
+    "/landing-page/passageiro-aereo",
+    "/landing-page/plano-de-saude",
+    "/landing-page/problemas-com-banco"
+  ];
+
+  // 4. Se a rota atual for uma LP, esconde o Navbar totalmente
+  if (lpsSemNavbar.includes(pathname)) {
+    return null;
+  }
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();

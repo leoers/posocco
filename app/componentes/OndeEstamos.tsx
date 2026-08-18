@@ -1,6 +1,7 @@
 "use client";
 import { motion, Variants } from "framer-motion";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { usePathname } from "next/navigation"; // 1. Importou o usePathname
 
 const fadeInVariant: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -42,8 +43,26 @@ const enderecos = [
 ];
 
 export default function FooterInfo() {
+  const pathname = usePathname(); // 2. Pega a rota atual
+
+  // 3. Lista de todas as pastas de LPs onde este bloco NÃO deve aparecer
+  const lpsSemFooterInfo = [
+    "/landing-page/direitos-autista",
+    "/landing-page/acidente-de-trabalho",
+    "/landing-page/direitos-cancer",
+    "/landing-page/aposentado-pensionista-servidor-militar",
+    "/landing-page/isencao-imposto-renda",
+    "/landing-page/passageiro-aereo",
+    "/landing-page/plano-de-saude",
+    "/landing-page/problemas-com-banco"
+  ];
+
+  // 4. Se a rota atual for uma LP, esconde o componente totalmente
+  if (lpsSemFooterInfo.includes(pathname)) {
+    return null;
+  }
+
   return (
-    /* AJUSTADO: Azul suavizado com rgba(..., 0.15) para dar excelente leitura no texto #333, sumindo aos 25% */
     <section 
       className="w-full py-20"
       style={{
@@ -68,8 +87,6 @@ export default function FooterInfo() {
               <div className="text-gray-600 space-y-0">
                 <p>+55 13 99200-9191</p>
                 <p>+55 11 99217-5115</p>
-                {/* <p>+55 11 97827-7147</p>
-                <p>+55 11 97827-4041</p> */}
               </div>
               <div>
                 <h3 className="text-[#001D3D] font-bold tracking-wide">E-mail</h3>
