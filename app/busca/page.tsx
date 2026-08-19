@@ -8,15 +8,98 @@ import Link from "next/link";
 import { ArrowLeft, Search } from "lucide-react";
 
 interface SearchResult {
-  id: number;
+  id: string | number;
   title: string;
   excerpt: string;
   date: string;
   link: string;
   slug: string;
-  type: "post" | "page";
+  type: "post" | "page" | "lp";
   featuredImage?: string;
 }
+
+const localLandingPages = [
+  {
+    id: "lp-acidente-de-trabalho",
+    title: "Acidente de Trabalho: Direitos, Indenizações e Benefícios",
+    excerpt: "Saiba o que fazer em caso de acidente de trabalho, direitos junto ao INSS, estabilidade no emprego e pedidos de indenização contra a empresa.",
+    date: new Date().toISOString(),
+    link: "/landing-page/acidente-de-trabalho",
+    slug: "acidente-de-trabalho",
+    type: "lp" as const,
+    featuredImage: "",
+  },
+  {
+    id: "lp-aposentado-pensionista-servidor-militar",
+    title: "Direitos para Aposentados, Pensionistas, Servidores e Militares",
+    excerpt: "Consulte orientações jurídicas e benefícios específicos voltados para aposentados, pensionistas, servidores públicos e militares.",
+    date: new Date().toISOString(),
+    link: "/landing-page/aposentado-pensionista-servidor-militar",
+    slug: "aposentado-pensionista-servidor-militar",
+    type: "lp" as const,
+    featuredImage: "",
+  },
+  {
+    id: "lp-direitos-autistas",
+    title: "Direitos dos Autistas: Conheça seus Benefícios e Garantias",
+    excerpt: "Saiba quais são os direitos legais garantidos às pessoas com autismo, incluindo acesso à saúde, BPC/LOAS, isenções de impostos e direitos trabalhistas.",
+    date: new Date().toISOString(),
+    link: "/landing-page/direitos-autista",
+    slug: "direitos-autista",
+    type: "lp" as const,
+    featuredImage: "",
+  },
+  {
+    id: "lp-direitos-cancer",
+    title: "Direitos da Pessoa com Câncer: Isenções, Saque de FGTS e Benefícios",
+    excerpt: "Conheça os direitos garantidos por lei para pacientes diagnosticados com câncer, como saque do FGTS/PIS, isenção de imposto de renda e prioridade em tramitações.",
+    date: new Date().toISOString(),
+    link: "/landing-page/direitos-cancer",
+    slug: "direitos-cancer",
+    type: "lp" as const,
+    featuredImage: "",
+  },
+  {
+    id: "lp-isencao-imposto-renda",
+    title: "Isenção de Imposto de Renda para Doenças Graves e Aposentados",
+    excerpt: "Descubra quem tem direito à isenção do Imposto de Renda retido na fonte devido a doenças graves, aposentadoria ou reforma militar.",
+    date: new Date().toISOString(),
+    link: "/landing-page/isencao-imposto-renda",
+    slug: "isencao-imposto-renda",
+    type: "lp" as const,
+    featuredImage: "",
+  },
+  {
+    id: "lp-passageiro-aereo",
+    title: "Problemas com Voo? Direitos do Passageiro Aéreo e Indenização",
+    excerpt: "Teve voo cancelado, atrasado, perda de conexão ou extravio de bagagem? Saiba como exigir seus direitos e buscar indenização de companhias aéreas.",
+    date: new Date().toISOString(),
+    link: "/landing-page/passageiro-aereo",
+    slug: "passageiro-aereo",
+    type: "lp" as const,
+    featuredImage: "",
+  },
+  {
+    id: "lp-plano-de-saude",
+    title: "Direitos contra Planos de Saúde: Reajustes Abusivos e Negativas",
+    excerpt: "O plano de saúde negou cobertura de cirurgia, exames, medicamentos ou aplicou reajustes abusivos por faixa etária? Conheça seus direitos e como reverter judicialmente.",
+    date: new Date().toISOString(),
+    link: "/landing-page/plano-de-saude",
+    slug: "plano-de-saude",
+    type: "lp" as const,
+    featuredImage: "",
+  },
+  {
+    id: "lp-problemas-com-banco",
+    title: "Problemas com Banco: Fraudes, Empréstimos Indevidos e Golpes",
+    excerpt: "Foi vítima de empréstimo consignado não solicitado, fraudes via Pix, clonagem de cartão ou cobranças indevidas? Saiba como responsabilizar a instituição financeira.",
+    date: new Date().toISOString(),
+    link: "/landing-page/problemas-com-banco",
+    slug: "problemas-com-banco",
+    type: "lp" as const,
+    featuredImage: "",
+  },
+];
 
 export default function BuscaPage() {
   return (
@@ -45,21 +128,31 @@ function BuscaContent() {
 
   const performSearch = async (searchTerm: string) => {
     setLoading(true);
+    const termLower = searchTerm.toLowerCase();
+
     try {
-      // Buscar em posts - URL atualizada
+      // 1. Filtrar as LPs locais do Next.js baseadas no termo digitado
+      const matchingLps = localLandingPages.filter(
+        (lp) =>
+          lp.title.toLowerCase().includes(termLower) ||
+          lp.excerpt.toLowerCase().includes(termLower)
+      );
+
+      // 2. Buscar em posts do WordPress
       const postsRes = await fetch(
         `https://posoccowp.xyz/wp/wp-json/wp/v2/posts?search=${encodeURIComponent(searchTerm)}&_embed&per_page=20`
       );
       const posts = await postsRes.json();
 
-      // Buscar em páginas - URL atualizada
+      // 3. Buscar em páginas do WordPress
       const pagesRes = await fetch(
         `https://posoccowp.xyz/wp/wp-json/wp/v2/pages?search=${encodeURIComponent(searchTerm)}&_embed&per_page=10`
       );
       const pages = await pagesRes.json();
 
-      // Combinar resultados
+      // 4. Combinar tudo em um único array de resultados
       const combinedResults: SearchResult[] = [
+        ...matchingLps,
         ...(Array.isArray(posts) ? posts.map((post: any) => ({
           id: post.id,
           title: post.title.rendered,
@@ -181,9 +274,11 @@ function BuscaContent() {
                         <span className={`text-xs font-bold uppercase tracking-wider px-2 py-1 rounded ${
                           result.type === "post" 
                             ? "bg-blue-100 text-blue-700" 
-                            : "bg-green-100 text-green-700"
+                            : result.type === "page"
+                            ? "bg-green-100 text-green-700"
+                            : "bg-purple-100 text-purple-700"
                         }`}>
-                          {result.type === "post" ? "Notícia" : "Página"}
+                          {result.type === "post" ? "Notícia" : result.type === "page" ? "Página" : "Especial"}
                         </span>
                         <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest">
                           {new Date(result.date).toLocaleDateString('pt-BR')}
